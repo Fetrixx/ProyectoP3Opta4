@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Nuevo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Nuevo</h2>
+
+
+
+
+
+
+@model ProyectoP3Opta4.Models.Proveedores
+@{
+    ViewBag.Title = "Nuevo Proveedor";
+}
+
+<div class="container">
+    <h2>Nuevo Proveedor</h2>
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nombre)
+            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Direccion)
+            @Html.TextBoxFor(model => model.Direccion, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Telefono)
+            @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mail)
+            @Html.TextBoxFor(model => model.Mail, new { @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="@Url.Action("Index", "Proveedores")" class="btn btn-secondary">Cancelar</a>
+    }
+</div>

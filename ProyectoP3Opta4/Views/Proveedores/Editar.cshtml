@@ -1,0 +1,102 @@
+﻿@model ProyectoP3Opta4.Models.Proveedores
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Editar Proveedor ";
+}
+
+<style>
+    /* CSS Styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #343a40;
+    }
+
+    h2 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+        input[type="text"]:read-only {
+            background-color: #ffcccc;
+        }
+
+    .error-message {
+        color: red;
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+<h2>Editar Proveedor</h2>
+
+@using (Html.BeginForm("Editar", "Proveedores", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nombre)
+        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @readonly = "readonly" })
+        <div class="error-message">No se puede modificar el nombre de un proveedor, ya que es un identificador primario.</div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Direccion)
+        @Html.TextBoxFor(model => model.Direccion, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Telefono)
+        @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Mail)
+        @Html.TextBoxFor(model => model.Mail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="@Url.Action("Index", "Proveedores")" class="btn btn-secondary">Cancelar</a>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

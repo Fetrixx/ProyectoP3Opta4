@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "ConfirmarEliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Eliminacion de Cliente";
+}
+
+<div class="container">
+    <h2>Confirmar Eliminación</h2>
+
+    <p>¿Estás seguro de que quieres eliminar el cliente <strong>@ViewBag.Cedula</strong>?</p>
+
+    @using (Html.BeginForm())
+    {
+        <div class="btn-container">
+            <input type="submit" value="Aceptar" class="btn btn-danger" />
+            <a href="@Url.Action("Index", "Cliente")" class="btn btn-secondary">Cancelar</a>
+        </div>
+    }
+</div>

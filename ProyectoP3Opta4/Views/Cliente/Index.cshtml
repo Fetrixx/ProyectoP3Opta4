@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model List<ProyectoP3Opta4.Models.Cliente>
+
+@{
+    ViewBag.Title = "Listado de Clientes";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Clientes</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .action-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+            .action-link:hover {
+                background-color: #0056b3;
+            }
+
+        .delete-link {
+            background-color: #dc3545;
+        }
+
+            .delete-link:hover {
+                background-color: #c82333;
+            }
+
+        /* Formulario de búsqueda */
+        #searchForm {
+            margin-bottom: 20px;
+        }
+
+        #search {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+            width: 300px;
+        }
+
+        #searchBtn, #refreshBtn {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            #searchBtn:hover, #refreshBtn:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+
+    <h2>Lista de Clientes</h2>
+
+    <!-- Formulario de búsqueda -->
+    <form id="searchForm" action="@Url.Action("Index")" method="get">
+        <label for="search">Buscar:</label>
+        <input type="text" id="search" name="search" placeholder="Buscar cliente por cedula...">
+        <button type="submit" id="searchBtn">Buscar</button>
+        <button type="button" id="refreshBtn">Actualizar lista</button> <!-- Nuevo botón -->
+    </form>
+
+    <!-- Tabla de proveedores -->
+    <table>
+        <thead>
+            <tr>
+                <!--
+                private string nombre;
+                private string apellido;
+                private string cedula;
+                private string mail;
+                private string telefono;
+                private string direccion;
+                    -->
+
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Cedula</th>
+                <th>Mail</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Acciones</th> <!-- Nueva columna para el botón de eliminar -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cliente in Model)
+            {
+                <tr>
+                    <td>@cliente.Nombre</td>
+                    <td>@cliente.Apellido</td>
+                    <td>@cliente.Cedula</td>
+                    <td>@cliente.Mail</td>
+                    <td>@cliente.Telefono</td>
+                    <td>@cliente.Direccion</td>
+                    <td>
+                        <!-- Botón para editar el proveedor -->
+                        <a href="@Url.Action("Editar", new { cedula = cliente.Cedula })" class="action-link">Editar</a>
+                        <!-- Botón para eliminar el proveedor -->
+                        <a href="@Url.Action("ConfirmarEliminar", new { cedula = cliente.Cedula })" class="action-link delete-link">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a href="@Url.Action("Nuevo")" class="action-link">Nuevo Cliente</a>
+
+    <script>
+        // Función para manejar el clic en el botón "Actualizar lista"
+        document.getElementById('refreshBtn').addEventListener('click', function () {
+            // Limpiar el campo de búsqueda
+            document.getElementById('search').value = '';
+            // Enviar el formulario para actualizar la lista
+            document.getElementById('searchForm').submit();
+        });
+    </script>
+
+</body>
+</html>

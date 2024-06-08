@@ -1,0 +1,149 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Listado de Categorias ";
+}
+
+
+
+
+
+
+@model List<ProyectoP3Opta4.Models.Categoria>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Categorias</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        style >
+        /* Estilos CSS comunes */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .action-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+            .action-link:hover {
+                background-color: #0056b3;
+            }
+
+        .delete-link {
+            background-color: #dc3545;
+        }
+
+            .delete-link:hover {
+                background-color: #c82333;
+            }
+
+        /* Formulario de búsqueda */
+        #searchForm {
+            margin-bottom: 20px;
+        }
+
+        #search {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+            width: 300px;
+        }
+
+        #searchBtn, #refreshBtn {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            #searchBtn:hover, #refreshBtn:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+
+    <h2>Lista de Categorias</h2>
+
+    <!-- Formulario de búsqueda -->
+    <form id="searchForm" action="@Url.Action("Index")" method="get">
+        <label for="search">Buscar:</label>
+        <input type="text" id="search" name="search" placeholder="Buscar categoria por nombre...">
+        <button type="submit" id="searchBtn">Buscar</button>
+        <button type="button" id="refreshBtn">Actualizar lista</button> <!-- Nuevo botón -->
+    </form>
+
+    <!-- Tabla de productos -->
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cantidad de Productos en la Categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var categoria in Model)
+            {
+                <tr>
+                    <td>@categoria.Nombre</td>
+                    <td>@categoria.CantidadProductos</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <script>
+        // Función para manejar el clic en el botón "Actualizar lista"
+        document.getElementById('refreshBtn').addEventListener('click', function () {
+            // Limpiar el campo de búsqueda
+            document.getElementById('search').value = '';
+            // Enviar el formulario para actualizar la lista
+            document.getElementById('searchForm').submit();
+        });</script>
+
+</body>
+</html>

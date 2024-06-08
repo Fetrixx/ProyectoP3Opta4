@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "ConfirmarEliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Eliminacion de Producto";
+}
+
+
+@model ProyectoP3Opta4.Models.Producto
+
+<div class="container">
+    <h2>Confirmar Eliminación</h2>
+
+    <p>¿Estás seguro de que quieres eliminar el producto <strong>@Model.Nombre</strong>?</p>
+
+    @using (Html.BeginForm("Eliminar", "Producto", new { codigoProducto = Model.CodigoProducto }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a href="@Url.Action("Index", "Producto")" class="btn btn-secondary">Cancelar</a>
+    }
+</div>
+

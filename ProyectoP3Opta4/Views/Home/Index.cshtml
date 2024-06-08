@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<style>
+    .buttonLogin {
+        border: none;
+        color: #fff;
+        margin: 1rem 0;
+        font-size: 18px;
+        padding: 0.5rem;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5rem;
+        background: linear-gradient(to right, blue, violet);
+    }
+</style>
+
+<div style="display:flex; justify-content: center; align-items: center">
+
+    @{
+        if (Session["loggedUser"] != null)
+        {
+            
+            var userName = Session["loggedUser"] as string;
+            var capitalizedUserName = userName?.Substring(0, 1).ToUpper() + userName?.Substring(1);
+
+            <h2>
+                Bienvenido @capitalizedUserName
+            </h2>
+
+        }
+        else
+        {
+
+            <h3 style="font-style:italic">
+                Para acceder al sistema por favor inicia sesion.
+            </h3>
+
+
+            <!--
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="button" onclick="location.href='@Url.Action("Index", "Login")'" class="buttonLogin">Iniciar sesión</button>
+                </div>
+            </div>
+                    -->
+
+
+        }
+    }
+</div>
+
+
+<div>
+    <ul>
+        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+        <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+        
+    </ul>
+
+    <h2>Mantenimiento</h2>
+    <div>
+        <ul>
+            <li>@Html.ActionLink("Categorias", "Index", "Categoria", new { area = "" }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Marcas", "Index", "Marcas", new { area = "" }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Almacenes", "Index", "Almacen", new { area = "" }, new { @class = "nav-link" })</li>
+        </ul>
+
+    </div>
+
+
+    <h2>Movimiento</h2>
+    <div>
+        <ul>
+            <li>@Html.ActionLink("Lista Proveedores", "Index", "Proveedores", new { area = "" }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Lista Productos", "Index", "Producto", new { area = "" }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Lista Clientes", "Index", "Cliente", new { area = "" }, new { @class = "nav-link" })</li>
+        </ul>
+    </div>
+
+</div>

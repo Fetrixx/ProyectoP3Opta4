@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Sistema de Gestion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            @if (Session["loggedUser"] != null)
+            {
+                @Html.ActionLink("Sistema de Control", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            }
+            else
+            {
+                @Html.ActionLink("Sistema de Control", "Index", "Login", new { area = "" }, new { @class = "navbar-brand" })
+            }
+
+
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            @{
+                var userName = Session["loggedUser"] as string;
+                var capitalizedUserName = userName?.Substring(0, 1).ToUpper() + userName?.Substring(1);
+            }
+
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between" style="justify-content: end !important;">
+                @if (Session["loggedUser"] != null) // el usuario inicio sesion
+                {
+                    <ul class="navbar-nav flex-grow-1">
+                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+
+                        <!--
+                            <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                            -->
+
+                        <li>@Html.ActionLink("Lista Proveedores", "Index", "Proveedores", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Lista Productos", "Index", "Producto", new { area = "" }, new { @class = "nav-link" })</li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="button" aria-haspopup="true" aria-expanded="false">
+                                Movimientos
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="@Url.Action("Index", "Proveedores")">
+                                    Lista de Proveedores
+                                    https://www.youtube.com/watch?v=VA4ThmZ8lH4
+                                </a>
+                            </div>
+                        </li>
+
+
+
+
+
+
+
+                        <!--
+                        <li>@Html.ActionLink("Login", "Index", "Login", new { area = "" }, new { @class = "nav-link" })</li>
+                        -->
+                        z
+
+                    </ul>
+
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                Dropdown
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
+                            </div>
+                        </div>
+
+
+
+                    <ul class="nav navbar-nav " style="float:right !important;">
+                        <li>
+                            <span class="nav-link">
+                                <b>
+                                    <i>
+                                        Hola @capitalizedUserName!
+                                    </i>
+                                </b>
+                            </span>
+                        </li>
+                        <li>
+                            @Html.ActionLink("Cerrar Sesión", "CerrarSesion", "Login", new { area = "" }, new { @class = "nav-link" })
+                        </li>
+                    </ul>
+                }
+                else // el usuario no inicio sesion
+                {
+                    <!--
+                    <ul class="nav navbar-nav " style="float:right !important; ">
+                        <li>@Html.ActionLink("Iniciar Sesion", "Index", "Login", new { area = "" }, new { @class = "nav-link" })</li>
+                    </ul>
+                    -->
+                    <button type="button" onclick="location.href='@Url.Action("Index", "Login")'" class="buttonLogin">Iniciar sesión</button>
+                }
+
+
+            </div>
+
+
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+        <!--
+
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+
+        -->
+    </div>
+
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+<style>
+    .buttonLogin {
+        border: none;
+        color: #fff;
+        margin: 1rem 0;
+        font-size: 18px;
+        padding: 0.5rem;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5rem;
+        background: linear-gradient(to right, blue, violet);
+    }
+
+
+    .dropdown {
+        float: left;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+    }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: lightslategrey;
+        }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+            .dropdown-content a:hover {
+                background-color: #ddd;
+            }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+</style>
