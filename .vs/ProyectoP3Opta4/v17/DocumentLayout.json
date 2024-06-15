@@ -3,19 +3,51 @@
   "WorkspaceRootPath": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\dao\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\proveedores\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\proveedores\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\dao\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\dao\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\dao\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\dao\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\producto\\confirmareliminar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\producto\\confirmareliminar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\views\\cliente\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\cliente\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\cliente\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -43,43 +75,35 @@
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\producto\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\views\\cliente\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\cliente\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\cliente\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\views\\cliente\\confirmareliminar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\cliente\\confirmareliminar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\cliente\\confirmareliminar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\views\\marcas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\marcas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\marcas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\views\\cliente\\nuevo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\cliente\\nuevo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\cliente\\nuevo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\views\\categoria\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\categoria\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\categoria\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\views\\almacen\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\almacen\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\almacen\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\proveedores\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\proveedores\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\dao\\categoriadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\dao\\categoriadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\dao\\categoriadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -87,7 +111,7 @@
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\controllers\\almacencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\controllers\\almacencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\controllers\\almacencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -95,23 +119,23 @@
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\models\\almacen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\models\\marcas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\models\\marcas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\models\\marcas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\dao\\almacendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\dao\\almacendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\dao\\almacendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\controllers\\marcascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\controllers\\marcascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\controllers\\marcascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\dao\\marcasdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\dao\\marcasdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\dao\\marcasdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -121,14 +145,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|d:\\visualstudioprojects\\proyectop3opta4\\proyectop3opta4\\dao\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\dao\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -159,19 +175,7 @@
       "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\models\\empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Elias\\AppData\\Local\\Temp\\.vsdbgsrc\\ae33efef4bff2e8e01dafbebfb0956cfb8b697c8d7b5a9a1b5a7abffef316aa9\\LoginController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|D:\\VisualStudioProjects\\ProyectoP3Opta4\\proyectop3opta4\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DB7E002A-8D34-48E3-A573-9495BBF84EC1}|ProyectoP3Opta4\\ProyectoP3Opta4.csproj|solutionrelative:proyectop3opta4\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -181,7 +185,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 25,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -189,7 +193,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 7,
+              "Title": "BundleConfig.cs",
+              "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\App_Start\\BundleConfig.cs",
+              "RelativeDocumentMoniker": "ProyectoP3Opta4\\App_Start\\BundleConfig.cs",
+              "ToolTip": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\App_Start\\BundleConfig.cs",
+              "RelativeToolTip": "ProyectoP3Opta4\\App_Start\\BundleConfig.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABYAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-14T23:05:06.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\Elias\\AppData\\Local\\Temp\\.vsdbgsrc\\ae33efef4bff2e8e01dafbebfb0956cfb8b697c8d7b5a9a1b5a7abffef316aa9\\LoginController.cs",
+              "ToolTip": "C:\\Users\\Elias\\AppData\\Local\\Temp\\.vsdbgsrc\\ae33efef4bff2e8e01dafbebfb0956cfb8b697c8d7b5a9a1b5a7abffef316aa9\\LoginController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T22:47:06.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ProyectoP3Opta4\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAAAGQAAACFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-03T23:13:44.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Conexion.cs",
+              "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Dao\\Conexion.cs",
+              "RelativeDocumentMoniker": "ProyectoP3Opta4\\Dao\\Conexion.cs",
+              "ToolTip": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Dao\\Conexion.cs",
+              "RelativeToolTip": "ProyectoP3Opta4\\Dao\\Conexion.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAHAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T22:49:33.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Categoria\\Index.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Categoria\\Index.cshtml",
@@ -202,7 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 24,
               "Title": "CategoriaController.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Controllers\\CategoriaController.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Controllers\\CategoriaController.cs",
@@ -215,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 25,
               "Title": "CategoriaDao.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Dao\\CategoriaDao.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Dao\\CategoriaDao.cs",
@@ -228,7 +280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 31,
               "Title": "AlmacenDao.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Dao\\AlmacenDao.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Dao\\AlmacenDao.cs",
@@ -241,7 +293,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 23,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Almacen\\Index.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Almacen\\Index.cshtml",
@@ -254,7 +306,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 27,
               "Title": "AlmacenController.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Controllers\\AlmacenController.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Controllers\\AlmacenController.cs",
@@ -267,7 +319,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 20,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Marcas\\Index.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Marcas\\Index.cshtml",
@@ -280,7 +332,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 29,
               "Title": "Marcas.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Models\\Marcas.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Models\\Marcas.cs",
@@ -293,7 +345,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 33,
               "Title": "MarcasDao.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Dao\\MarcasDao.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Dao\\MarcasDao.cs",
@@ -306,7 +358,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 32,
               "Title": "MarcasController.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Controllers\\MarcasController.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Controllers\\MarcasController.cs",
@@ -319,7 +371,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 19,
               "Title": "ConfirmarEliminar.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Cliente\\ConfirmarEliminar.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Cliente\\ConfirmarEliminar.cshtml",
@@ -332,7 +384,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
               "Title": "Editar.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Cliente\\Editar.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Cliente\\Editar.cshtml",
@@ -345,7 +397,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 21,
               "Title": "Nuevo.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Cliente\\Nuevo.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Cliente\\Nuevo.cshtml",
@@ -358,7 +410,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Cliente\\Index.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Cliente\\Index.cshtml",
@@ -371,7 +423,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 30,
               "Title": "ClienteController.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Controllers\\ClienteController.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Controllers\\ClienteController.cs",
@@ -384,20 +436,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 9,
               "Title": "ClienteDao.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Dao\\ClienteDao.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Dao\\ClienteDao.cs",
               "ToolTip": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Dao\\ClienteDao.cs",
               "RelativeToolTip": "ProyectoP3Opta4\\Dao\\ClienteDao.cs",
-              "ViewState": "AQIAAFsAAAAAAAAAAAAIwIQAAAAwAAAA",
+              "ViewState": "AQIAAIQAAAAAAAAAAAAqwIQAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-07T22:05:53.932Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "ConfirmarEliminar.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Producto\\ConfirmarEliminar.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Producto\\ConfirmarEliminar.cshtml",
@@ -410,7 +462,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 17,
               "Title": "Editar.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Producto\\Editar.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Producto\\Editar.cshtml",
@@ -423,7 +475,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "Nuevo.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Producto\\Nuevo.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Producto\\Nuevo.cshtml",
@@ -436,7 +488,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Producto\\Index.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Producto\\Index.cshtml",
@@ -449,7 +501,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 40,
               "Title": "ProductoDao.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Dao\\ProductoDao.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Dao\\ProductoDao.cs",
@@ -457,11 +509,12 @@
               "RelativeToolTip": "ProyectoP3Opta4\\Dao\\ProductoDao.cs",
               "ViewState": "AQIAAAoBAAAAAAAAAAAWwBwBAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T21:53:48.289Z"
+              "WhenOpened": "2024-06-06T21:53:48.289Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 35,
               "Title": "ProductoController.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Controllers\\ProductoController.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Controllers\\ProductoController.cs",
@@ -474,7 +527,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 37,
               "Title": "ProveedoresController.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Controllers\\ProveedoresController.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Controllers\\ProveedoresController.cs",
@@ -487,30 +540,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\Elias\\AppData\\Local\\Temp\\.vsdbgsrc\\ae33efef4bff2e8e01dafbebfb0956cfb8b697c8d7b5a9a1b5a7abffef316aa9\\LoginController.cs",
-              "ToolTip": "C:\\Users\\Elias\\AppData\\Local\\Temp\\.vsdbgsrc\\ae33efef4bff2e8e01dafbebfb0956cfb8b697c8d7b5a9a1b5a7abffef316aa9\\LoginController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T22:47:06.509Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "ProyectoP3Opta4\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAACYAAAAAAAAAAAAiwEkAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-03T23:13:44.602Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "ConfirmarEliminar.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Proveedores\\ConfirmarEliminar.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Proveedores\\ConfirmarEliminar.cshtml",
@@ -523,7 +553,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "Editar.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Proveedores\\Editar.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Proveedores\\Editar.cshtml",
@@ -536,7 +566,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "Nuevo.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Proveedores\\Nuevo.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Proveedores\\Nuevo.cshtml",
@@ -549,20 +579,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Proveedores\\Index.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Proveedores\\Index.cshtml",
               "ToolTip": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Proveedores\\Index.cshtml",
               "RelativeToolTip": "ProyectoP3Opta4\\Views\\Proveedores\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAAsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-05T23:05:13.123Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 38,
               "Title": "ProveedoresDao.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Dao\\ProveedoresDao.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Dao\\ProveedoresDao.cs",
@@ -575,7 +605,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 34,
               "Title": "Producto.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Models\\Producto.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Models\\Producto.cs",
@@ -588,7 +618,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 36,
               "Title": "Cliente.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Models\\Cliente.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Models\\Cliente.cs",
@@ -601,7 +631,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 26,
               "Title": "Categoria.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Models\\Categoria.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Models\\Categoria.cs",
@@ -614,7 +644,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 28,
               "Title": "Almacen.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Models\\Almacen.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Models\\Almacen.cs",
@@ -627,20 +657,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Login\\Index.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Login\\Index.cshtml",
               "ToolTip": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Login\\Index.cshtml",
               "RelativeToolTip": "ProyectoP3Opta4\\Views\\Login\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAjAAAA",
+              "ViewState": "AQIAALMAAAAAAAAAAAAAwLwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-04T00:45:07.856Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 2,
               "Title": "LoginController.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Controllers\\LoginController.cs",
@@ -648,11 +678,12 @@
               "RelativeToolTip": "ProyectoP3Opta4\\Controllers\\LoginController.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAqwBoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T23:48:43.129Z"
+              "WhenOpened": "2024-06-03T23:48:43.129Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 3,
               "Title": "Login.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Home\\Login.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Home\\Login.cshtml",
@@ -660,11 +691,12 @@
               "RelativeToolTip": "ProyectoP3Opta4\\Views\\Home\\Login.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-03T23:15:45.664Z"
+              "WhenOpened": "2024-06-03T23:15:45.664Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 39,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Controllers\\HomeController.cs",
@@ -677,7 +709,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 6,
               "Title": "Error.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Shared\\Error.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Shared\\Error.cshtml",
@@ -685,24 +717,25 @@
               "RelativeToolTip": "ProyectoP3Opta4\\Views\\Shared\\Error.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-03T23:13:43.654Z"
+              "WhenOpened": "2024-06-03T23:13:43.654Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Views\\Home\\Index.cshtml",
               "ToolTip": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "ProyectoP3Opta4\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAADoAAABrAAAA",
+              "ViewState": "AQIAACwAAAAAAAAAAAAAwD4AAACEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-03T23:12:39.201Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 41,
               "Title": "Proveedores.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Models\\Proveedores.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Models\\Proveedores.cs",
@@ -710,11 +743,12 @@
               "RelativeToolTip": "ProyectoP3Opta4\\Models\\Proveedores.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T23:01:59.896Z"
+              "WhenOpened": "2024-06-03T23:01:59.896Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 42,
               "Title": "Empleado.cs",
               "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Models\\Empleado.cs",
               "RelativeDocumentMoniker": "ProyectoP3Opta4\\Models\\Empleado.cs",
@@ -722,19 +756,7 @@
               "RelativeToolTip": "ProyectoP3Opta4\\Models\\Empleado.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T23:01:35.724Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Conexion.cs",
-              "DocumentMoniker": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Dao\\Conexion.cs",
-              "RelativeDocumentMoniker": "ProyectoP3Opta4\\Dao\\Conexion.cs",
-              "ToolTip": "D:\\VisualStudioProjects\\ProyectoP3Opta4\\ProyectoP3Opta4\\Dao\\Conexion.cs",
-              "RelativeToolTip": "ProyectoP3Opta4\\Dao\\Conexion.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T22:49:33.486Z",
+              "WhenOpened": "2024-06-03T23:01:35.724Z",
               "EditorCaption": ""
             }
           ]
