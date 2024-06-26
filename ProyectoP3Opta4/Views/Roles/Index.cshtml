@@ -1,0 +1,117 @@
+﻿@model IEnumerable<ProyectoP3Opta4.Models.Roles>
+
+@{
+    ViewBag.Title = "Lista de Roles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Lista de Roles</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID Rol</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.id_rol)</td>
+                    <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.descripcion)</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Editar", new { id = item.id_rol }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Eliminar", "ConfirmarEliminar", new { id = item.id_rol }, new { @class = "action-link delete-link" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p>
+        @Html.ActionLink("Nuevo Rol", "Nuevo", null, new { @class = "action-link" })
+    </p>
+</div>
+
+
+
+<style>
+    /* Estilos CSS */
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .action-link {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+        .action-link:hover {
+            background-color: #0056b3;
+        }
+
+    .delete-link {
+        background-color: #dc3545;
+    }
+
+        .delete-link:hover {
+            background-color: #c82333;
+        }
+
+    /* Formulario de búsqueda */
+    #searchForm {
+        margin-bottom: 20px;
+    }
+
+    #search {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-right: 10px;
+        width: 300px;
+    }
+
+    #searchBtn, #refreshBtn {
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        #searchBtn:hover, #refreshBtn:hover {
+            background-color: #0056b3;
+        }
+</style>

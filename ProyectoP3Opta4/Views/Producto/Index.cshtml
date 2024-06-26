@@ -1,166 +1,156 @@
-﻿
+﻿@model List<ProyectoP3Opta4.Models.Producto>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listado de Productos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@{
-    ViewBag.Title = "Listado de Productos";
+<h2>Lista de Productos</h2>
+
+<form id="searchForm" action="@Url.Action("Index")" method="get">
+    <label for="search">Buscar:</label>
+    <input type="text" id="search" name="search" placeholder="Buscar prod por nombre...">
+    <button type="submit" id="searchBtn">Buscar</button>
+    <button type="button" id="refreshBtn">Actualizar lista</button> <!-- Nuevo botón -->
+</form>
+
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio Unitario</th>
+            <th>Categoría</th>
+            <th>Marca</th>
+            <th>Proveedor</th>
+            <th>Cantidad</th>
+            <th>Almacén</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.descripcion)</td>
+                <td>@Html.DisplayFor(modelItem => item.precio_unitario)</td>
+                <td>@Html.DisplayFor(modelItem => item.categoria_nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.marca_nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.proveedor_nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.cantidad)</td>
+                <td>@Html.DisplayFor(modelItem => item.almacen_nombre)</td>
+                <td>
+                    @Html.ActionLink("Editar", "Editar", new { id_producto = item.id_producto }, new { @class = "action-link" })
+                    @Html.ActionLink("Eliminar", "ConfirmarEliminar", new { id_producto = item.id_producto }, new { @class = "action-link delete-link" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<a href="@Url.Action("Nuevo")" class="action-link">Nuevo Producto</a>
+
+
+<script>
+    // Función para manejar el clic en el botón "Actualizar lista"
+    document.getElementById('refreshBtn').addEventListener('click', function () {
+        // Limpiar el campo de búsqueda
+        document.getElementById('search').value = '';
+        // Enviar el formulario para actualizar la lista
+        document.getElementById('searchForm').submit();
+    });
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
 
-@model List<ProyectoP3Opta4.Models.Producto>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Productos</title>
-    <style>
-        /* Estilos CSS */
-        body {
-            font-family: Arial, sans-serif;
+
+
+
+
+
+
+
+
+
+<style>
+    /* Estilos CSS */
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .action-link {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+        .action-link:hover {
+            background-color: #0056b3;
         }
 
-        style >
-        /* Estilos CSS comunes */
-        body {
-            font-family: Arial, sans-serif;
+    .delete-link {
+        background-color: #dc3545;
+    }
+
+        .delete-link:hover {
+            background-color: #c82333;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+    /* Formulario de búsqueda */
+    #searchForm {
+        margin-bottom: 20px;
+    }
+
+    #search {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-right: 10px;
+        width: 300px;
+    }
+
+    #searchBtn, #refreshBtn {
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        #searchBtn:hover, #refreshBtn:hover {
+            background-color: #0056b3;
         }
-
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-
-        .action-link {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-            .action-link:hover {
-                background-color: #0056b3;
-            }
-
-        .delete-link {
-            background-color: #dc3545;
-        }
-
-            .delete-link:hover {
-                background-color: #c82333;
-            }
-
-        /* Formulario de búsqueda */
-        #searchForm {
-            margin-bottom: 20px;
-        }
-
-        #search {
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-right: 10px;
-            width: 300px;
-        }
-
-        #searchBtn, #refreshBtn {
-            padding: 8px 16px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-            #searchBtn:hover, #refreshBtn:hover {
-                background-color: #0056b3;
-            }
-    </style>
-</head>
-<body>
-
-    <h2>Lista de Productos</h2>
-
-    <!-- Formulario de búsqueda -->
-    <form id="searchForm" action="@Url.Action("Index")" method="get">
-        <label for="search">Buscar:</label>
-        <input type="text" id="search" name="search" placeholder="Buscar producto por nombre...">
-        <button type="submit" id="searchBtn">Buscar</button>
-        <button type="button" id="refreshBtn">Actualizar lista</button> <!-- Nuevo botón -->
-    </form>
-
-    <!-- Tabla de productos -->
-    <table>
-        <thead>
-            <tr>
-                <th>Código Producto</th>
-                <th>Nombre</th>
-                <th>Cantidad</th>
-                <th>Categoría</th>
-                <th>Marca</th>
-                <th>Almacén</th>
-                <th>Acciones</th> <!-- Columna para botones de acción -->
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var producto in Model)
-            {
-                <tr>
-                    <td>@producto.CodigoProducto</td>
-                    <td>@producto.Nombre</td>
-                    <td>@producto.Cantidad</td>
-                    <td>@producto.Categoria</td>
-                    <td>@producto.Marca</td>
-                    <td>@producto.Almacen</td>
-                    <td>
-                        <!-- Botón para editar el producto -->
-                        <a href="@Url.Action("Editar", new { codigoProducto = producto.CodigoProducto })" class="action-link">Editar</a>
-                        <!-- Botón para eliminar el producto -->
-                        @using (Html.BeginForm("ConfirmarEliminar", "Producto", new { codigoProducto = producto.CodigoProducto }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <input type="submit" value="Eliminar" class="action-link delete-link" />
-                        }
-
-
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-
-    <a href="@Url.Action("Nuevo")" class="action-link">Nuevo Producto</a>
-
-    <script>
-    // Función para manejar el clic en el botón "Actualizar lista"
-        document.getElementById('refreshBtn').addEventListener('click', function () {
-            // Limpiar el campo de búsqueda
-            document.getElementById('search').value = '';
-            // Enviar el formulario para actualizar la lista
-            document.getElementById('searchForm').submit();
-        });</script>
-
-</body>
-</html>
+</style>

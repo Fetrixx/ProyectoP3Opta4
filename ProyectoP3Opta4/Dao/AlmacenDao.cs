@@ -5,25 +5,28 @@ using System.Web;
 
 using System.Data;
 using MySql.Data.MySqlClient;
+using Npgsql;
 
 namespace ProyectoP3Opta4.Dao
 {
     public class AlmacenDao : Conexion
     {
-        public string respGral = "En proceso";
-        public static DataTable getListaAlmacenes() // regresar todos los datos
+        public static DataTable getListaAlmacenes()
         {
-            // Conectarse a la base de datos
             string cadena = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection conexionDB;
+            NpgsqlConnection conexionDB;
             DataTable datatable = new DataTable();
-            MySqlDataReader resultado;
+            NpgsqlDataReader resultado;
 
             try
             {
-                conexionDB = new MySqlConnection(cadena);
-
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Almacenes;", conexionDB);
+                conexionDB = new NpgsqlConnection(cadena);
+                NpgsqlCommand cmd = new NpgsqlCommand(
+                    "SELECT a.id_almacen, a.nombre, a.direccion, a.ciudad, a.telefono, " +
+                    "COALESCE(SUM(p.cantidad), 0) AS cantidadProductos " +
+                    "FROM almacenes a " +
+                    "LEFT JOIN productos p ON a.id_almacen = p.id_almacen " +
+                    "GROUP BY a.id_almacen, a.nombre, a.direccion, a.ciudad, a.telefono;", conexionDB);
                 cmd.CommandType = CommandType.Text;
                 conexionDB.Open();
                 resultado = cmd.ExecuteReader();
@@ -31,25 +34,30 @@ namespace ProyectoP3Opta4.Dao
             }
             catch (Exception ex)
             {
-                // MessageBox.Show(ex.Message);
+                // Manejo de errores
             }
             return datatable;
+
         }
 
-        public static DataTable Listado_Almacenes(string nombreCat) // regresar solo el dato en el input
+        public static DataTable Listado_Almacenes(string nombreCat)
         {
-            // Conectarse a la base de datos
             string cadena = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection conexionDB;
+            NpgsqlConnection conexionDB;
             DataTable datatable = new DataTable();
-            MySqlDataReader resultado;
-
+            NpgsqlDataReader resultado;
 
             try
             {
-                conexionDB = new MySqlConnection(cadena);
-                string query = "SELECT * FROM Almacenes WHERE upper(trim(nombre)) like upper(trim(@nombreCat));";
-                MySqlCommand cmd = new MySqlCommand(query, conexionDB);
+                conexionDB = new NpgsqlConnection(cadena);
+                string query =
+                    "SELECT a.id_almacen, a.nombre, a.direccion, a.ciudad, a.telefono, " +
+                    "COALESCE(SUM(p.cantidad), 0) AS cantidadProductos " +
+                    "FROM almacenes a " +
+                    "LEFT JOIN productos p ON a.id_almacen = p.id_almacen " +
+                    "WHERE upper(trim(a.nombre)) LIKE upper(trim(@nombreCat)) " +
+                    "GROUP BY a.id_almacen, a.nombre, a.direccion, a.ciudad, a.telefono;";
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conexionDB);
                 cmd.Parameters.AddWithValue("@nombreCat", "%" + nombreCat + "%");
                 cmd.CommandType = CommandType.Text;
                 conexionDB.Open();
@@ -58,7 +66,7 @@ namespace ProyectoP3Opta4.Dao
             }
             catch (Exception ex)
             {
-                // MessageBox.Show(ex.Message);
+                // Manejo de errores
             }
             return datatable;
         }

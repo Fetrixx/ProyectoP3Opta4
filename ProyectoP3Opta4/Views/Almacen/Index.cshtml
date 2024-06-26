@@ -1,18 +1,13 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 @{
     ViewBag.Title = "Listado de Almacenes";
 }
 
-
-
 @model List<ProyectoP3Opta4.Models.Almacen>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,12 +17,6 @@
     <title>Lista de Almacenes</title>
     <style>
         /* Estilos CSS */
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        style >
-        /* Estilos CSS comunes */
         body {
             font-family: Arial, sans-serif;
         }
@@ -119,15 +108,21 @@
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Cantidad de Productos en el Almacen</th>
+                <th>Dirección</th>
+                <th>Ciudad</th>
+                <th>Teléfono</th>
+                <th>Cantidad de Productos</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var almacen in Model)
             {
                 <tr>
-                    <td>@almacen.Nombre</td>
-                    <td>@almacen.CantidadProductos</td>
+                    <td>@almacen.nombre</td>
+                    <td>@almacen.direccion</td>
+                    <td>@almacen.ciudad</td>
+                    <td>@almacen.telefono</td>
+                    <td>@almacen.cantidadProductos</td>
                 </tr>
             }
         </tbody>
@@ -140,7 +135,8 @@
             document.getElementById('search').value = '';
             // Enviar el formulario para actualizar la lista
             document.getElementById('searchForm').submit();
-        });</script>
+        });
+    </script>
 
 </body>
 </html>

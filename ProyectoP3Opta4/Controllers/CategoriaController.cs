@@ -22,23 +22,24 @@ namespace ProyectoP3Opta4.Controllers
             }
             else
             {
-                DataTable dataTable = CategoriaDao.Listado_Categorias(search); // nombre almacen
+                DataTable dataTable = CategoriaDao.Listado_Categorias(search);
                 categorias = ConvertirDataTableACategorias(dataTable);
             }
 
             return View(categorias);
         }
 
-        // Método para convertir un DataTable a una lista de Productos
         private List<Categoria> ConvertirDataTableACategorias(DataTable dataTable)
         {
             List<Categoria> categorias = new List<Categoria>();
 
             foreach (DataRow row in dataTable.Rows)
             {
-                Categoria categoria= new Categoria(
-                    nombre: row["Nombre"].ToString(),
-                    cantidadProductos: Convert.ToInt32(row["CantidadProductos"])
+                Categoria categoria = new Categoria(
+                    id_categoria: Convert.ToInt32(row["id_categoria"]),
+                    nombre: row["nombre"].ToString(),
+                    descripcion: row["descripcion"].ToString(),
+                    cantidadProductos: Convert.ToInt32(row["cantidadProductos"])
                 );
                 categorias.Add(categoria);
             }

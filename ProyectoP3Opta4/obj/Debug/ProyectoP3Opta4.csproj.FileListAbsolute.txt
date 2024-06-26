@@ -91,3 +91,207 @@ D:\VisualStudioProjects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\System.Memory
 D:\VisualStudioProjects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\System.Numerics.Vectors.dll
 D:\VisualStudioProjects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
 D:\VisualStudioProjects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Configuration.ConfigurationManager.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\ProyectoP3Opta4.dll.config
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\ProyectoP3Opta4.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\ProyectoP3Opta4.pdb
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\csc.exe
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\csc.exe.config
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\csc.rsp
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\csi.exe
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\csi.exe.config
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\csi.rsp
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\Microsoft.Managed.Core.CurrentVersions.targets
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\Microsoft.Managed.Core.targets
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\System.Buffers.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\System.Collections.Immutable.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\System.Memory.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\System.Numerics.Vectors.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\System.Reflection.Metadata.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\vbc.exe
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\vbc.exe.config
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\vbc.rsp
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\VBCSCompiler.exe
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\roslyn\VBCSCompiler.exe.config
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\Antlr3.Runtime.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\BouncyCastle.Cryptography.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\Google.Protobuf.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\K4os.Compression.LZ4.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\K4os.Compression.LZ4.Streams.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\K4os.Hash.xxHash.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\Microsoft.Bcl.AsyncInterfaces.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\Microsoft.Web.Infrastructure.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\MySql.Data.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\Newtonsoft.Json.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Buffers.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Configuration.ConfigurationManager.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Diagnostics.DiagnosticSource.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.IO.Pipelines.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Memory.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Numerics.Vectors.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Threading.Tasks.Extensions.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Web.Helpers.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Web.Mvc.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Web.Optimization.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Web.Razor.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Web.WebPages.Deployment.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Web.WebPages.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Web.WebPages.Razor.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\WebGrease.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\ZstdSharp.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\BouncyCastle.Cryptography.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\Google.Protobuf.pdb
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\Google.Protobuf.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\K4os.Compression.LZ4.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\K4os.Compression.LZ4.Streams.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\K4os.Hash.xxHash.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\Microsoft.Bcl.AsyncInterfaces.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\MySql.Data.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Buffers.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Configuration.ConfigurationManager.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Diagnostics.DiagnosticSource.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.IO.Pipelines.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Memory.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Numerics.Vectors.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Threading.Tasks.Extensions.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Web.Helpers.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Web.Mvc.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Web.Razor.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Web.WebPages.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Web.WebPages.Deployment.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Web.WebPages.Razor.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\System.Web.Optimization.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\Newtonsoft.Json.xml
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\bin\Antlr3.Runtime.pdb
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\obj\Debug\ProyectoP3Opta4.csproj.AssemblyReference.cache
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\obj\Debug\ProyectoP3Opta4.csproj.CoreCompileInputs.cache
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\obj\Debug\Proyecto.17CB89BA.Up2Date
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\obj\Debug\ProyectoP3Opta4.dll
+D:\UA\projects\ProyectoP3Opta4\ProyectoP3Opta4\obj\Debug\ProyectoP3Opta4.pdb
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\obj\Debug\ProyectoP3Opta4.csproj.AssemblyReference.cache
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\obj\Debug\ProyectoP3Opta4.csproj.CoreCompileInputs.cache
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\obj\Debug\ProyectoP3Opta4.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\obj\Debug\ProyectoP3Opta4.pdb
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\ProyectoP3Opta4.dll.config
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\ProyectoP3Opta4.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\ProyectoP3Opta4.pdb
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\csc.exe
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\csc.exe.config
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\csc.rsp
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\csi.exe
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\csi.exe.config
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\csi.rsp
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\Microsoft.Managed.Core.CurrentVersions.targets
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\Microsoft.Managed.Core.targets
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\System.Buffers.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\System.Collections.Immutable.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\System.Memory.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\System.Numerics.Vectors.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\System.Reflection.Metadata.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\vbc.exe
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\vbc.exe.config
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\vbc.rsp
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\VBCSCompiler.exe
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\roslyn\VBCSCompiler.exe.config
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Antlr3.Runtime.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\BouncyCastle.Cryptography.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Google.Protobuf.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\K4os.Compression.LZ4.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\K4os.Compression.LZ4.Streams.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\K4os.Hash.xxHash.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Microsoft.Bcl.AsyncInterfaces.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Microsoft.Bcl.HashCode.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Microsoft.Extensions.Logging.Abstractions.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Microsoft.Web.Infrastructure.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\MySql.Data.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Newtonsoft.Json.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Npgsql.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Buffers.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Collections.Immutable.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Configuration.ConfigurationManager.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Diagnostics.DiagnosticSource.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.IO.Pipelines.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Memory.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Numerics.Vectors.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Text.Encodings.Web.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Text.Json.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Threading.Channels.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Threading.Tasks.Extensions.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.ValueTuple.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Web.Helpers.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Web.Mvc.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Web.Optimization.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Web.Razor.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Web.WebPages.Deployment.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Web.WebPages.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Web.WebPages.Razor.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\WebGrease.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\ZstdSharp.dll
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\BouncyCastle.Cryptography.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Google.Protobuf.pdb
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Google.Protobuf.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\K4os.Compression.LZ4.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\K4os.Compression.LZ4.Streams.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\K4os.Hash.xxHash.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Microsoft.Bcl.AsyncInterfaces.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Microsoft.Bcl.HashCode.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Microsoft.Extensions.Logging.Abstractions.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\MySql.Data.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Npgsql.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Buffers.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Collections.Immutable.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Configuration.ConfigurationManager.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Diagnostics.DiagnosticSource.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.IO.Pipelines.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Memory.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Numerics.Vectors.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Text.Encodings.Web.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Text.Json.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Threading.Channels.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Threading.Tasks.Extensions.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.ValueTuple.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Web.Helpers.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Web.Mvc.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Web.Razor.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Web.WebPages.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Web.WebPages.Deployment.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Web.WebPages.Razor.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\System.Web.Optimization.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Newtonsoft.Json.xml
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\bin\Antlr3.Runtime.pdb
+D:\UA\projects\ProyectoP3Opta4 - Postgre\ProyectoP3Opta4\obj\Debug\Proyecto.17CB89BA.Up2Date

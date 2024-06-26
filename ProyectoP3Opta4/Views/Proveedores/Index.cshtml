@@ -106,34 +106,40 @@
     </form>
 
     <!-- Tabla de proveedores -->
+
     <table>
         <thead>
             <tr>
-                <th>Nombre</th>
+                <th>ID Proveedor</th>
+                <th>Nombre Empresa</th>
+                <th>Nombre Contacto</th>
                 <th>Dirección</th>
                 <th>Teléfono</th>
-                <th>Mail</th>
-                <th>Acciones</th> <!-- Nueva columna para el botón de eliminar -->
+                <th>Correo Electrónico</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var proveedor in Model)
+            @foreach (var item in Model)
             {
                 <tr>
-                    <td>@proveedor.Nombre</td>
-                    <td>@proveedor.Direccion</td>
-                    <td>@proveedor.Telefono</td>
-                    <td>@proveedor.Mail</td>
+                    <td>@item.IdProveedor</td>
+                    <td>@item.NombreEmpresa</td>
+                    <td>@item.NombreContacto</td>
+                    <td>@item.Direccion</td>
+                    <td>@item.Telefono</td>
+                    <td>@item.CorreoElectronico</td>
                     <td>
-                        <!-- Botón para editar el proveedor -->
-                        <a href="@Url.Action("Editar", new { nombre = proveedor.Nombre })" class="action-link">Editar</a>
-                        <!-- Botón para eliminar el proveedor -->
-                        <a href="@Url.Action("ConfirmarEliminar", new { nombre = proveedor.Nombre })" class="action-link delete-link">Eliminar</a>
+                        @Html.ActionLink("Editar", "Editar", new { id = item.IdProveedor }, new { @class = "action-link" })
+                        @Html.ActionLink("Eliminar", "ConfirmarEliminar", new { id = item.IdProveedor }, new { @class = "action-link delete-link" })
                     </td>
                 </tr>
             }
         </tbody>
     </table>
+
+
+
 
     <a href="@Url.Action("Nuevo")" class="action-link">Nuevo Proveedor</a>
 

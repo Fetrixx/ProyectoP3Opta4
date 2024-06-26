@@ -119,6 +119,7 @@
         <thead>
             <tr>
                 <th>Nombre</th>
+                <th>País de Origen</th>
                 <th>Items</th>
             </tr>
         </thead>
@@ -126,8 +127,9 @@
             @foreach (var marca in Model)
             {
                 <tr>
-                    <td>@marca.Nombre</td>
-                    <td>@marca.Items</td>
+                    <td>@marca.nombre</td>
+                    <td>@marca.pais_origen</td>
+                    <td>@marca.items</td>
                 </tr>
             }
         </tbody>

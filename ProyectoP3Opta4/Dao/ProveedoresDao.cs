@@ -7,152 +7,166 @@ using System.Web;
 
 using ProyectoP3Opta4.Dao;
 using ProyectoP3Opta4.Models;
-using MySql.Data.MySqlClient;
+// using Npgsql.Data.NpgsqlClient;
+using Npgsql;
 
 namespace ProyectoP3Opta4.Dao
 {
     public class ProveedoresDao: Conexion
     {
-        Proveedores mod = new Proveedores();
         public string respGral = "En proceso";
-        public void Insertar(Proveedores obj) // guardar_ca
-        {
 
-            string sql = "INSERT INTO Proveedores (nombre,direccion,telefono,gmail) VALUES (@p1,@p2,@p3,@p4);";
+        public void Insertar(Proveedores obj)
+        {
+            string sql = "INSERT INTO Proveedores (nombre_empresa, nombre_contacto, direccion, telefono, correo_electronico) VALUES (@p1, @p2, @p3, @p4, @p5);";
             try
             {
-
                 AbrirConexion();
-                MySqlCommand cmd = new MySqlCommand(sql, DBconexion);
-                cmd.CommandType = CommandType.Text;
-                //cmd.Prepare();
-                cmd.Parameters.AddWithValue("@p1", obj.Nombre);
-                cmd.Parameters.AddWithValue("@p2", obj.Direccion);
-                cmd.Parameters.AddWithValue("@p3", obj.Telefono);
-                cmd.Parameters.AddWithValue("@p4", obj.Mail);
+                NpgsqlCommand cmd = new NpgsqlCommand(sql, DBconexion);
+                cmd.Parameters.AddWithValue("@p1", obj.NombreEmpresa);
+                cmd.Parameters.AddWithValue("@p2", obj.NombreContacto);
+                cmd.Parameters.AddWithValue("@p3", obj.Direccion);
+                cmd.Parameters.AddWithValue("@p4", obj.Telefono);
+                cmd.Parameters.AddWithValue("@p5", obj.CorreoElectronico);
                 cmd.ExecuteNonQuery();
-                Console.Write("grabo con exito");
                 respGral = "ok";
             }
             catch (Exception ex)
             {
-                new Exception("Error al gravar la tabla...!!!" + ex.Message);
+                throw new Exception("Error al grabar en la tabla...!!!" + ex.Message);
             }
             finally
             {
                 CerrarConexion();
-                //respGral = "En proceso";
             }
         }
 
-
-        public void modificar(Proveedores obj)
+        public void Modificar(Proveedores obj)
         {
-            string query = "UPDATE Proveedores SET direccion = @p2,telefono = @p3,gmail = @p4 WHERE nombre = @p1;";
+            string query = "UPDATE Proveedores SET nombre_empresa = @p1, nombre_contacto = @p2, direccion = @p3, telefono = @p4, correo_electronico = @p5 WHERE id_proveedor = @p6;";
             try
             {
                 AbrirConexion();
-                MySqlCommand Cmd = new MySqlCommand(query, DBconexion);
-                Cmd.Parameters.AddWithValue("@p1", obj.Nombre);
-                Cmd.Parameters.AddWithValue("@p2", obj.Direccion);
-                Cmd.Parameters.AddWithValue("@p3", obj.Telefono);
-                Cmd.Parameters.AddWithValue("@p4", obj.Mail);
-                Cmd.ExecuteNonQuery();
-                Console.Write("grabo con exito");
-                respGral = "ok";
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al grabar la tabla...!!!"
-                + ex.Message);
-            }
-            finally
-            {
-                CerrarConexion();
-                //respGral = "En proceso";
-            }
-        }
-
-        public void Eliminar_Prov(string provNombre) // guardar_ca
-        {
-
-            string sql = "DELETE FROM Proveedores WHERE nombre = @p1;";
-            try
-            {
-                AbrirConexion();
-                MySqlCommand cmd = new MySqlCommand(sql, DBconexion);
-                cmd.CommandType = CommandType.Text;
-                //cmd.Prepare();
-                cmd.Parameters.AddWithValue("@p1", provNombre);
+                NpgsqlCommand cmd = new NpgsqlCommand(query, DBconexion);
+                cmd.Parameters.AddWithValue("@p1", obj.NombreEmpresa);
+                cmd.Parameters.AddWithValue("@p2", obj.NombreContacto);
+                cmd.Parameters.AddWithValue("@p3", obj.Direccion);
+                cmd.Parameters.AddWithValue("@p4", obj.Telefono);
+                cmd.Parameters.AddWithValue("@p5", obj.CorreoElectronico);
+                cmd.Parameters.AddWithValue("@p6", obj.IdProveedor);
                 cmd.ExecuteNonQuery();
-                Console.Write("elimino con exito");
                 respGral = "ok";
             }
             catch (Exception ex)
             {
-                new Exception("Error al eliminar la tabla...!!!" + ex.Message);
+                throw new Exception("Error al grabar en la tabla...!!!" + ex.Message);
             }
             finally
             {
                 CerrarConexion();
-                //respGral = "En proceso";
             }
         }
 
-        public static DataTable getListaProveedores() // regresar todos los datos
+        public void Eliminar(int idProveedor)
         {
-            // Conectarse a la base de datos
-            string cadena = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection conexionDB;
-            DataTable datatable = new DataTable();
-            MySqlDataReader resultado;
-
+            string sql = "DELETE FROM Proveedores WHERE id_proveedor = @p1;";
             try
             {
-                conexionDB = new MySqlConnection(cadena);
-
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Proveedores;", conexionDB);
-                cmd.CommandType = CommandType.Text;
-                conexionDB.Open();
-                resultado = cmd.ExecuteReader();
-                datatable.Load(resultado);
+                AbrirConexion();
+                NpgsqlCommand cmd = new NpgsqlCommand(sql, DBconexion);
+                cmd.Parameters.AddWithValue("@p1", idProveedor);
+                cmd.ExecuteNonQuery();
+                respGral = "ok";
             }
             catch (Exception ex)
             {
-                // MENSAJE DE ERROR
-                // MessageBox.Show(ex.Message);
-
+                throw new Exception("Error al eliminar en la tabla...!!!" + ex.Message);
             }
-            return datatable;
+            finally
+            {
+                CerrarConexion();
+            }
         }
 
-        public static DataTable Listado_Proveedores(string nombreProvListado) // regresar solo el dato en el input
+        public static DataTable GetListaProveedores()
         {
-            // Conectarse a la base de datos
             string cadena = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection conexionDB;
-            DataTable datatable = new DataTable();
-            MySqlDataReader resultado;
-
+            NpgsqlConnection conexionDB = new NpgsqlConnection(cadena);
+            DataTable dataTable = new DataTable();
 
             try
             {
-                conexionDB = new MySqlConnection(cadena);
-                string query = "SELECT * FROM Proveedores WHERE upper(trim(nombre)) like upper(trim(@nombreProvListado));";
-                MySqlCommand cmd = new MySqlCommand(query, conexionDB);
-                cmd.Parameters.AddWithValue("@nombreProvListado", "%" + nombreProvListado + "%");
-                cmd.CommandType = CommandType.Text;
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM Proveedores;", conexionDB);
                 conexionDB.Open();
-                resultado = cmd.ExecuteReader();
-                datatable.Load(resultado);
+                NpgsqlDataReader resultado = cmd.ExecuteReader();
+                dataTable.Load(resultado);
             }
             catch (Exception ex)
             {
-                // MENSAJE DE ERROR
-                // MessageBox.Show(ex.Message);
+                throw new Exception("Error al obtener la lista de proveedores...!!!" + ex.Message);
             }
-            return datatable;
+            finally
+            {
+                conexionDB.Close();
+            }
+
+            return dataTable;
+        }
+
+        public static DataTable ListadoProveedores(string nombreEmpresa)
+        {
+            string cadena = Conexion.getInstancia().getCadenaConexion();
+            NpgsqlConnection conexionDB = new NpgsqlConnection(cadena);
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                string query = "SELECT * FROM Proveedores WHERE upper(trim(nombre_empresa)) like upper(trim(@nombreEmpresa));";
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conexionDB);
+                cmd.Parameters.AddWithValue("@nombreEmpresa", "%" + nombreEmpresa + "%");
+                conexionDB.Open();
+                NpgsqlDataReader resultado = cmd.ExecuteReader();
+                dataTable.Load(resultado);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al buscar proveedores...!!!" + ex.Message);
+            }
+            finally
+            {
+                conexionDB.Close();
+            }
+
+            return dataTable;
+        }
+
+        // Método para obtener un proveedor por su ID
+        public DataTable GetProveedorPorId(int id)
+        {
+            string cadena = Conexion.getInstancia().getCadenaConexion();
+            NpgsqlConnection conexionDB = new NpgsqlConnection(cadena);
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                string query = "SELECT * FROM Proveedores WHERE id_proveedor = @Id;";
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conexionDB);
+                cmd.Parameters.AddWithValue("@Id", id);
+        
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+                conexionDB.Open();
+                adapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el proveedor por ID...!!! " + ex.Message);
+            }
+            finally
+            {
+                conexionDB.Close();
+            }
+
+            return dataTable;
         }
 
     }

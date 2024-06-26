@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-using MySql.Data.MySqlClient;
+// using MySql.Data.MySqlClient;
+using Npgsql;
 using ProyectoP3Opta4.Models;
 using ProyectoP3Opta4.Dao;
 
@@ -16,6 +17,8 @@ namespace ProyectoP3Opta4.Controllers
         public ActionResult Index()
         {
             Session["loggedUser"] = null;
+            Session["userType"] = null;
+            Session["fullName"] = null;
 
             return View(new Empleado());
         }
@@ -23,36 +26,41 @@ namespace ProyectoP3Opta4.Controllers
         public ActionResult CerrarSesion()
         {
             Session["loggedUser"] = null;
+            Session["userType"] = null;
+            Session["fullName"] = null;
             return RedirectToAction("Index", "Login");
         }
 
         [HttpPost]
-
         public ActionResult Index(Empleado model)
         {
             if (ModelState.IsValid)
             {
                 string cadenaConexion = Conexion.getInstancia().getCadenaConexion();
-                string Usuario_datos = model.Usuario;
-                string Contrasena_datos = model.Contraseña;
+                string Usuario_datos = model.usuario;
+                string Contrasena_datos = model.contrasena;
 
                 try
                 {
-                    using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
+                    using (NpgsqlConnection conexion = new NpgsqlConnection(cadenaConexion))
                     {
                         conexion.Open();
 
-                        string query = "SELECT * FROM Empleados WHERE Usuario = @Usuario AND Contraseña = @Contraseña";
-                        using (MySqlCommand command = new MySqlCommand(query, conexion))
+                        string query = "SELECT id_rol, nombre_completo FROM Empleados WHERE usuario = @Usuario AND contrasena = @Contrasena";
+                        using (NpgsqlCommand command = new NpgsqlCommand(query, conexion))
                         {
                             command.Parameters.AddWithValue("@Usuario", Usuario_datos);
-                            command.Parameters.AddWithValue("@Contraseña", Contrasena_datos);
+                            command.Parameters.AddWithValue("@Contrasena", Contrasena_datos);
 
-                            using (MySqlDataReader reader = command.ExecuteReader())
+                            // object id_rol = command.ExecuteScalar(); // Obtiene el valor de id_rol
+
+                            using (NpgsqlDataReader reader = command.ExecuteReader())
                             {
                                 if (reader.Read())
                                 {
                                     Session["loggedUser"] = Usuario_datos;
+                                    Session["userType"] = reader["id_rol"].ToString();
+                                    Session["fullName"] = reader["nombre_completo"].ToString();
 
                                     // Los datos coinciden, usuario autenticado
                                     return RedirectToAction("Index", "Home");
@@ -76,8 +84,8 @@ namespace ProyectoP3Opta4.Controllers
 
             // El modelo no es válido, vuelve a mostrar el formulario con los errores
             return View(model);
-        
-    }
+        }
+
 
 
 
@@ -95,17 +103,17 @@ namespace ProyectoP3Opta4.Controllers
                 // Usando la cadena de conexión y los datos del usuario
                 // Retorna verdadero si el usuario es válido, falso de lo contrario
 
-                using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
+                using (NpgsqlConnection conexion = new NpgsqlConnection(cadenaConexion))
                 {
                     conexion.Open();
 
                     string query = "SELECT * FROM Empleados WHERE Usuario = @Usuario AND Contraseña = @Contraseña";
-                    using (MySqlCommand command = new MySqlCommand(query, conexion))
+                    using (NpgsqlCommand command = new NpgsqlCommand(query, conexion))
                     {
                         command.Parameters.AddWithValue("@Usuario", usuario);
                         command.Parameters.AddWithValue("@Contraseña", contraseña);
 
-                        using (MySqlDataReader reader = command.ExecuteReader())
+                        using (NpgsqlDataReader reader = command.ExecuteReader())
                         {
                             if (reader.Read())
                             {

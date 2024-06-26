@@ -7,18 +7,23 @@ namespace ProyectoP3Opta4.Models
 {
     public class Almacen
     {
-        private string nombre;
-        private int cantidadProductos;
-
-        public string Nombre { get => nombre; set => nombre = value; } // PK
-        public int CantidadProductos { get => cantidadProductos; set => cantidadProductos = value; }
+         public int id_almacen { get; set; }
+        public string nombre { get; set; }
+        public string direccion { get; set; }
+        public string ciudad { get; set; }
+        public string telefono { get; set; }
+        public int cantidadProductos { get; set; }
 
         public Almacen() { }
-        public Almacen(string nombre, int cantidadProductos)
-        {
-            this.Nombre = nombre;
-            this.CantidadProductos = cantidadProductos;
 
+        public Almacen(int id_almacen, string nombre, string direccion, string ciudad, string telefono, int cantidadProductos)
+        {
+            this.id_almacen = id_almacen;
+            this.nombre = nombre;
+            this.direccion = direccion;
+            this.ciudad = ciudad;
+            this.telefono = telefono;
+            this.cantidadProductos = cantidadProductos;
         }
     }
 }

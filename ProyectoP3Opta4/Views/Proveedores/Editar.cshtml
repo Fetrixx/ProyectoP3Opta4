@@ -62,40 +62,60 @@
         }
 </style>
 
-<h2>Editar Proveedor</h2>
 
-@using (Html.BeginForm("Editar", "Proveedores", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
+<div class="container">
+    <h2>Editar Proveedor</h2>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Nombre)
-        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @readonly = "readonly" })
-        <div class="error-message">No se puede modificar el nombre de un proveedor, ya que es un identificador primario.</div>
-    </div>
+    @using (Html.BeginForm("Editar", "Proveedores", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Direccion)
-        @Html.TextBoxFor(model => model.Direccion, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
-    </div>
+        @Html.HiddenFor(model => model.IdProveedor) <!-- Campo oculto para el id_proveedor -->
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Telefono)
-        @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
-    </div>
+        <div class="form-group">
+            <h5>
+                Nombre de la Empresa:
+            </h5>
+            @Html.TextBoxFor(model => model.NombreEmpresa, new { @class = "form-control" })
+            <!--div class="error-message">No se puede modificar el nombre de un proveedor, ya que es un identificador primario.</div-->
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Mail)
-        @Html.TextBoxFor(model => model.Mail, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
-    </div>
+        <div class="form-group">
+            <h5>
+                Nombre del contacto:
+            </h5>
+            @Html.TextBoxFor(model => model.NombreContacto, new { @class = "form-control" })
+        </div>
 
-    <button type="submit" class="btn btn-primary">Guardar</button>
-    <a href="@Url.Action("Index", "Proveedores")" class="btn btn-secondary">Cancelar</a>
+        <div class="form-group">
+            <h5>
+                Direccion:
+            </h5>
+            @Html.TextBoxFor(model => model.Direccion, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
+        </div>
 
-}
+        <div class="form-group">
+            <h5>
+                Telefono:
+            </h5>
+            @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <h5>
+                Correo:
+            </h5>
+            @Html.TextBoxFor(model => model.CorreoElectronico, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CorreoElectronico, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="@Url.Action("Index", "Proveedores")" class="btn btn-secondary">Cancelar</a>
+    }
+</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

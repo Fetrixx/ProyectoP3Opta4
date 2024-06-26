@@ -28,27 +28,29 @@ namespace ProyectoP3Opta4.Controllers
             if (string.IsNullOrEmpty(search))
             {
                 DataTable dataTable = MarcasDao.getListaMarcas();
-                marcas = ConvertirDataTableAProductos(dataTable);
+                marcas = ConvertirDataTableAMarcas(dataTable);
             }
             else
             {
                 DataTable dataTable = MarcasDao.Listado_Marcas(search); // nombre marca
-                marcas = ConvertirDataTableAProductos(dataTable);
+                marcas = ConvertirDataTableAMarcas(dataTable);
             }
 
             return View(marcas);
         }
 
         // Método para convertir un DataTable a una lista de Productos
-        private List<Marcas> ConvertirDataTableAProductos(DataTable dataTable)
+        private List<Marcas> ConvertirDataTableAMarcas(DataTable dataTable)
         {
             List<Marcas> marcas = new List<Marcas>();
 
             foreach (DataRow row in dataTable.Rows)
             {
                 Marcas marca = new Marcas(
-                    nombre: row["Nombre"].ToString(),
-                    items: Convert.ToInt32(row["Items"])
+                    id_marca: Convert.ToInt32(row["id_marca"]),
+                    nombre: row["nombre"].ToString(),
+                    pais_origen: row["pais_origen"].ToString(),
+                    items: Convert.IsDBNull(row["items"]) ? 0 : Convert.ToInt32(row["items"])
                 );
                 marcas.Add(marca);
             }

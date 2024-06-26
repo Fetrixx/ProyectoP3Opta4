@@ -5,26 +5,29 @@ using System.Data;
 using System.Linq;
 using System.Web;
 
-using MySql.Data.MySqlClient;
+// using MySql.Data.MySqlClient;
+using Npgsql;
 
 namespace ProyectoP3Opta4.Dao
 {
     public class CategoriaDao : Conexion
     {
-        public string respGral = "En proceso";
-        public static DataTable getListaCategorias() // regresar todos los datos
+        public static DataTable getListaCategorias()
         {
-            // Conectarse a la base de datos
             string cadena = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection conexionDB;
+            NpgsqlConnection conexionDB;
             DataTable datatable = new DataTable();
-            MySqlDataReader resultado;
+            NpgsqlDataReader resultado;
 
             try
             {
-                conexionDB = new MySqlConnection(cadena);
-
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Categorias;", conexionDB);
+                conexionDB = new NpgsqlConnection(cadena);
+                NpgsqlCommand cmd = new NpgsqlCommand(
+                    "SELECT c.id_categoria, c.nombre, c.descripcion, " +
+                    "COALESCE(SUM(p.cantidad), 0) AS cantidadProductos " +
+                    "FROM categorias c " +
+                    "LEFT JOIN productos p ON c.id_categoria = p.id_categoria " +
+                    "GROUP BY c.id_categoria, c.nombre, c.descripcion;", conexionDB);
                 cmd.CommandType = CommandType.Text;
                 conexionDB.Open();
                 resultado = cmd.ExecuteReader();
@@ -32,25 +35,29 @@ namespace ProyectoP3Opta4.Dao
             }
             catch (Exception ex)
             {
-                // MessageBox.Show(ex.Message);
+                // Manejo de errores
             }
             return datatable;
         }
 
-        public static DataTable Listado_Categorias(string nombreCat) // regresar solo el dato en el input
+        public static DataTable Listado_Categorias(string nombreCat)
         {
-            // Conectarse a la base de datos
             string cadena = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection conexionDB;
+            NpgsqlConnection conexionDB;
             DataTable datatable = new DataTable();
-            MySqlDataReader resultado;
-
+            NpgsqlDataReader resultado;
 
             try
             {
-                conexionDB = new MySqlConnection(cadena);
-                string query = "SELECT * FROM Categorias WHERE upper(trim(nombre)) like upper(trim(@nombreCat));";
-                MySqlCommand cmd = new MySqlCommand(query, conexionDB);
+                conexionDB = new NpgsqlConnection(cadena);
+                string query =
+                    "SELECT c.id_categoria, c.nombre, c.descripcion, " +
+                    "COALESCE(SUM(p.cantidad), 0) AS cantidadProductos " +
+                    "FROM categorias c " +
+                    "LEFT JOIN productos p ON c.id_categoria = p.id_categoria " +
+                    "WHERE upper(trim(c.nombre)) LIKE upper(trim(@nombreCat)) " +
+                    "GROUP BY c.id_categoria, c.nombre, c.descripcion;";
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conexionDB);
                 cmd.Parameters.AddWithValue("@nombreCat", "%" + nombreCat + "%");
                 cmd.CommandType = CommandType.Text;
                 conexionDB.Open();
@@ -59,7 +66,7 @@ namespace ProyectoP3Opta4.Dao
             }
             catch (Exception ex)
             {
-                // MessageBox.Show(ex.Message);
+                // Manejo de errores
             }
             return datatable;
         }

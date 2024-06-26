@@ -25,7 +25,6 @@
             </button>
             @{
                 var userName = Session["loggedUser"] as string;
-                var capitalizedUserName = userName?.Substring(0, 1).ToUpper() + userName?.Substring(1);
             }
 
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between" style="justify-content: end !important;">
@@ -35,23 +34,6 @@
                         
                         <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                         
-                        <!--
-                            <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                            -->
-                        <!-- Mantenimiento
-                        <li>@Html.ActionLink("Categorias", "Index", "Categoria", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Marcas", "Index", "Marcas", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Almacenes", "Index", "Almacen", new { area = "" }, new { @class = "nav-link" })</li>
-                        -->
-                        <!-- Movimiento
-                        <li>@Html.ActionLink("Lista Proveedores", "Index", "Proveedores", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Lista Productos", "Index", "Producto", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Lista Clientes", "Index", "Cliente", new { area = "" }, new { @class = "nav-link" })</li>
-                        -->
-                        <!--
-                        <li>@Html.ActionLink("Login", "Index", "Login", new { area = "" }, new { @class = "nav-link" })</li>
-                        -->
                         <!-- Dropdown Mantenimiento -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="mantenimientoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -71,12 +53,16 @@
                             <ul class="dropdown-menu" aria-labelledby="movimientoDropdown">
                                 <li>@Html.ActionLink("Lista Proveedores", "Index", "Proveedores", new { area = "" }, new { @class = "dropdown-item" })</li>
                                 <li>@Html.ActionLink("Lista Productos", "Index", "Producto", new { area = "" }, new { @class = "dropdown-item" })</li>
-                                <li>@Html.ActionLink("Lista Clientes", "Index", "Cliente", new { area = "" }, new { @class = "dropdown-item" })</li>
+                                @if (Session["userType"].ToString() == "1")
+                                {
+                                    <li>@Html.ActionLink("Administrar Empleados", "Index", "Empleado", new { area = "" }, new { @class = "dropdown-item" })</li>
+
+                                    <li>@Html.ActionLink("Administrar Roles", "Index", "Roles", new { area = "" }, new { @class = "dropdown-item" })</li>
+                                }
+
                             </ul>
                         </li>
-
                     </ul>
-
 
 
                     <ul class="nav navbar-nav " style="float:right !important;">
@@ -84,7 +70,7 @@
                             <span class="nav-link">
                                 <b>
                                     <i>
-                                        Hola @capitalizedUserName!
+                                        Hola @Session["fullName"]!
                                     </i>
                                 </b>
                             </span>
@@ -96,11 +82,6 @@
                 }
                 else // el usuario no inicio sesion
                 {
-                    <!--
-                    <ul class="nav navbar-nav " style="float:right !important; ">
-                        <li>@Html.ActionLink("Iniciar Sesion", "Index", "Login", new { area = "" }, new { @class = "nav-link" })</li>
-                    </ul>
-                    -->
                     <button type="button" onclick="location.href='@Url.Action("Index", "Login")'" class="buttonLogin">Iniciar sesión</button>
                 }
 
@@ -115,29 +96,9 @@
         @RenderBody()
         <hr />
         
-
-        <!--
-
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-
-        -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     @RenderSection("scripts", required: false)
-
-    @{
-        /*
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/popper")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-        */
-    }
 
 
 </body>

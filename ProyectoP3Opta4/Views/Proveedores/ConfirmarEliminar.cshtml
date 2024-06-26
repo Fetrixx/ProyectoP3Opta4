@@ -1,8 +1,12 @@
 ﻿
+
+@model ProyectoP3Opta4.Models.Proveedores
+
 @{
     ViewBag.Title = "ConfirmarEliminar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 @{
     ViewBag.Title = "Eliminacion de Proveedor ";
@@ -11,12 +15,41 @@
 <div class="container">
     <h2>Confirmar Eliminación</h2>
 
-    <p>¿Estás seguro de que quieres eliminar el proveedor <strong>@ViewBag.NombreProveedor</strong>?</p>
+    <p>¿Estás seguro de que quieres eliminar el proveedor <strong>@Model.NombreEmpresa</strong>?</p>
 
-    @using (Html.BeginForm())
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>Nombre de la Empresa</th>
+                    <td>@Model.NombreEmpresa</td>
+                </tr>
+                <tr>
+                    <th>Nombre de Contacto</th>
+                    <td>@Model.NombreContacto</td>
+                </tr>
+                <tr>
+                    <th>Dirección</th>
+                    <td>@Model.Direccion</td>
+                </tr>
+                <tr>
+                    <th>Teléfono</th>
+                    <td>@Model.Telefono</td>
+                </tr>
+                <tr>
+                    <th>Correo Electrónico</th>
+                    <td>@Model.CorreoElectronico</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    @using (Html.BeginForm("EliminarConfirmado", "Proveedores", FormMethod.Post))
     {
+        @Html.HiddenFor(model => model.IdProveedor)
+
         <div class="btn-container">
-            <input type="submit" value="Aceptar" class="btn btn-danger" />
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
             <a href="@Url.Action("Index", "Proveedores")" class="btn btn-secondary">Cancelar</a>
         </div>
     }

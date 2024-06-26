@@ -1,84 +1,140 @@
-﻿
-@{
-    ViewBag.Title = "Editar";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    List<string> categorias = ProyectoP3Opta4.Dao.ProductoDao.cargarCategorias();
-    List<string> marcas = ProyectoP3Opta4.Dao.ProductoDao.cargarMarcas();
-    List<string> almacenes = ProyectoP3Opta4.Dao.ProductoDao.cargarAlmacenes();
-}
-@model ProyectoP3Opta4.Models.Producto
-
+﻿@model ProyectoP3Opta4.Models.Producto
 
 @{
     ViewBag.Title = "Editar Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<SelectListItem> categorias = ViewBag.Categorias;
+    List<SelectListItem> marcas = ViewBag.Marcas;
+    List<SelectListItem> almacenes = ViewBag.Almacenes;
+    List<SelectListItem> proveedores = ViewBag.Proveedores;
 }
 
-<h2>Editar Producto</h2>
+<style>
+    /* CSS Styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #343a40;
+    }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+    h2 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    .form-group {
+        margin-bottom: 20px;
+    }
 
-        <!-- Campo oculto para el código del producto -->
-        @Html.HiddenFor(model => model.CodigoProducto)
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div class="container">
+    <h2>Editar Producto</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
-            </div>
+            @Html.HiddenFor(model => model.id_producto)
+
+            <h5>
+                Nombre:
+            </h5>
+            @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Cantidad, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cantidad, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <!-- Campos de selección para categoría, marca y almacén -->
-        <div class="form-group">
-            @Html.Label("Categoría", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Categoria, new SelectList(categorias), "Seleccione una categoría", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Categoria, "", new { @class = "text-danger" })
-            </div>
+            <h5>
+                Descripcion:
+            </h5>
+            @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
-            @Html.Label("Marca", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Marca, new SelectList(marcas), "Seleccione una marca", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Marca, "", new { @class = "text-danger" })
-            </div>
+            <h5>
+                Precio Unitario:
+            </h5>
+            @Html.EditorFor(model => model.precio_unitario, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.precio_unitario, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
-            @Html.Label("Almacén", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Almacen, new SelectList(almacenes), "Seleccione un almacén", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Almacen, "", new { @class = "text-danger" })
-            </div>
+            <h5>
+                Cantidad:
+            </h5>
+            @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.cantidad, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar Cambios" class="btn btn-primary" />
-            </div>
+            <h5>
+                Categoria:
+            </h5>
+            @Html.DropDownListFor(model => model.id_categoria, categorias, "Seleccione una categoría", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.id_categoria, "", new { @class = "text-danger" })
         </div>
-    </div>
-}
 
-<div>
-    @Html.ActionLink("Cancelar", "Index")
+        <div class="form-group">
+            <h5>
+                Marca:
+            </h5>
+            @Html.DropDownListFor(model => model.id_marca, marcas, "Seleccione una marca", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.id_marca, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <h5>
+                Proveedor:
+            </h5>
+            @Html.DropDownListFor(model => model.id_proveedor, proveedores, "Seleccione un proveedor", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.id_proveedor, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <h5>
+                Almacen:
+            </h5>
+            @Html.DropDownListFor(model => model.id_almacen, almacenes, "Seleccione un almacén", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.id_almacen, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    }
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+    

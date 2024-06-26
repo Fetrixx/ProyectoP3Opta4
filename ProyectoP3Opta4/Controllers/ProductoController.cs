@@ -1,10 +1,7 @@
 ﻿using ProyectoP3Opta4.Dao;
 using ProyectoP3Opta4.Models;
-using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ProyectoP3Opta4.Controllers
@@ -16,46 +13,25 @@ namespace ProyectoP3Opta4.Controllers
         // GET: Producto/Index
         public ActionResult Index(string search)
         {
-            List<Producto> productos = new List<Producto>();
-
-            if (string.IsNullOrEmpty(search))
-            {
-                DataTable dataTable = ProductoDao.getListaProductos();
-                productos = ConvertirDataTableAProductos(dataTable);
-            }
-            else
-            {
-                DataTable dataTable = ProductoDao.Listado_Productos(search);
-                productos = ConvertirDataTableAProductos(dataTable);
-            }
-
+            List<Producto> productos = string.IsNullOrEmpty(search) ? productoDao.ListarProductos("") : productoDao.ListarProductos(search);
             return View(productos);
-        }
-
-        // Método para convertir un DataTable a una lista de Productos
-        private List<Producto> ConvertirDataTableAProductos(DataTable dataTable)
-        {
-            List<Producto> productos = new List<Producto>();
-
-            foreach (DataRow row in dataTable.Rows)
-            {
-                Producto producto = new Producto(
-                    codigoprod: Convert.ToInt32(row["CodigoProducto"]),
-                    nombre: row["Nombre"].ToString(),
-                    cantidad: Convert.ToInt32(row["Cantidad"]),
-                    categoria: row["categoria"].ToString(),
-                    marca: row["marca"].ToString(),
-                    almacen: row["almacen"].ToString()
-                );
-                productos.Add(producto);
-            }
-
-            return productos;
         }
 
         // GET: Producto/Nuevo
         public ActionResult Nuevo()
         {
+            // Cargar listas de categorías, marcas, almacenes y proveedores desde la base de datos
+            List<Categoria> categorias = productoDao.CargarCategorias();
+            List<Marcas> marcas = productoDao.CargarMarcas();
+            List<Almacen> almacenes = productoDao.CargarAlmacenes();
+            List<Proveedores> proveedores = productoDao.CargarProveedores();
+
+            // Convertir listas a SelectListItems para los dropdowns en la vista
+            ViewBag.Categorias = categorias.Select(c => new SelectListItem { Value = c.id_categoria.ToString(), Text = c.nombre }).ToList();
+            ViewBag.Marcas = marcas.Select(m => new SelectListItem { Value = m.id_marca.ToString(), Text = m.nombre }).ToList();
+            ViewBag.Almacenes = almacenes.Select(a => new SelectListItem { Value = a.id_almacen.ToString(), Text = a.nombre }).ToList();
+            ViewBag.Proveedores = proveedores.Select(p => new SelectListItem { Value = p.IdProveedor.ToString(), Text = p.NombreEmpresa }).ToList();
+
             return View();
         }
 
@@ -72,19 +48,27 @@ namespace ProyectoP3Opta4.Controllers
         }
 
         // GET: Producto/Editar/5
-        public ActionResult Editar(int codigoProducto)
+        public ActionResult Editar(int id_producto)
         {
-            // Producto producto = productoDao.modificar(codigoProducto);
-            Producto producto = productoDao.ObtenerProductoPorCodigo(codigoProducto);
+            Producto producto = productoDao.ObtenerProductoPorId(id_producto);
+            if (producto == null)
+            {
+                return HttpNotFound();
+            }
 
-            if (producto != null)
-            {
-                return View(producto);
-            }
-            else
-            {
-                return RedirectToAction("Index");
-            }
+            // Cargar listas de categorías, marcas, almacenes y proveedores desde la base de datos
+            List<Categoria> categorias = productoDao.CargarCategorias();
+            List<Marcas> marcas = productoDao.CargarMarcas();
+            List<Almacen> almacenes = productoDao.CargarAlmacenes();
+            List<Proveedores> proveedores = productoDao.CargarProveedores();
+
+            // Convertir listas a SelectListItems para los dropdowns en la vista
+            ViewBag.Categorias = categorias.Select(c => new SelectListItem { Value = c.id_categoria.ToString(), Text = c.nombre }).ToList();
+            ViewBag.Marcas = marcas.Select(m => new SelectListItem { Value = m.id_marca.ToString(), Text = m.nombre }).ToList();
+            ViewBag.Almacenes = almacenes.Select(a => new SelectListItem { Value = a.id_almacen.ToString(), Text = a.nombre }).ToList();
+            ViewBag.Proveedores = proveedores.Select(p => new SelectListItem { Value = p.IdProveedor.ToString(), Text = p.NombreEmpresa }).ToList();
+
+            return View(producto);
         }
 
         // POST: Producto/Editar/5
@@ -93,102 +77,40 @@ namespace ProyectoP3Opta4.Controllers
         {
             if (ModelState.IsValid)
             {
-                productoDao.modificar(producto);
+                productoDao.Modificar(producto);
                 return RedirectToAction("Index");
             }
             return View(producto);
         }
-        /*
-        // GET: Producto/Eliminar/5
-        public ActionResult Eliminar(int codigoProducto)
+
+        // GET: Producto/Detalles/5
+        public ActionResult Detalles(int id_producto)
         {
-            ViewBag.CodigoProducto = codigoProducto;
-            return View();
-        }
-        */
-        // POST: Producto/Eliminar/5
-
-
-
-
-        // GET: Producto/ConfirmarEliminar/5
-        public ActionResult ConfirmarEliminar(int codigoProducto)
-        {
-            Producto producto = productoDao.ObtenerProductoPorCodigo(codigoProducto);
+            Producto producto = productoDao.ObtenerProductoPorId(id_producto);
             if (producto == null)
             {
-                return HttpNotFound(); // Manejar el caso en que el producto no se encuentra
+                return HttpNotFound();
+            }
+            return View(producto);
+        }
+
+        // GET: Producto/ConfirmarEliminar/5
+        public ActionResult ConfirmarEliminar(int id_producto)
+        {
+            Producto producto = productoDao.ObtenerProductoPorId(id_producto);
+            if (producto == null)
+            {
+                return HttpNotFound();
             }
             return View(producto);
         }
 
         // POST: Producto/Eliminar/5
         [HttpPost]
-        public ActionResult Eliminar(int codigoProducto)
+        public ActionResult Eliminar(int id_producto)
         {
-            // Eliminar el producto
-            // Obtener el producto a eliminar utilizando el método del DAO
-            Producto producto = productoDao.ObtenerProductoPorCodigo(codigoProducto);
-
-            if (producto != null) // Verificar si se encontró el producto
-            {
-                productoDao.Eliminar_Prod(producto);
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                // Manejar el caso en que no se encontró el producto
-                // Por ejemplo, podrías mostrar un mensaje de error, redirigir a una página de error, etc.
-                return RedirectToAction("ProductoNoEncontrado");
-            }
+            productoDao.Eliminar(id_producto);
+            return RedirectToAction("Index");
         }
-
-
-        /*
-        // POST: Producto/ConfirmarEliminar
-        [HttpPost]
-        public ActionResult ConfirmarEliminar(int codigoProducto)
-        {
-            // Obtener el producto a eliminar utilizando el método del DAO
-            Producto producto = productoDao.ObtenerProductoPorCodigo(codigoProducto);
-
-            if (producto != null) // Verificar si se encontró el producto
-            {
-                productoDao.Eliminar_Prod(producto);
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                // Manejar el caso en que no se encontró el producto
-                // Por ejemplo, podrías mostrar un mensaje de error, redirigir a una página de error, etc.
-                return RedirectToAction("ProductoNoEncontrado");
-            }
-        }
-        */
-
-
-        /*
-        [HttpPost]
-        public ActionResult ConfirmarEliminar(int codigoProducto)
-        {
-            // Obtener el producto a eliminar utilizando el método del DAO
-            Producto producto = productoDao.ObtenerProductoPorCodigo(codigoProducto);
-
-            if (producto != null) // Verificar si se encontró el producto
-            {
-                // Llamar al método Eliminar_Prod del DAO pasando el objeto del producto
-                productoDao.Eliminar_Prod(producto);
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                // Manejar el caso en que no se encontró el producto
-                // Por ejemplo, podrías mostrar un mensaje de error, redirigir a una página de error, etc.
-                return RedirectToAction("ProductoNoEncontrado");
-            }
-        }*/
     }
 }
-
-
-

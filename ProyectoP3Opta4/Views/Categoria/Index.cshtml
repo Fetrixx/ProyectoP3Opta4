@@ -1,36 +1,22 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 @{
-    ViewBag.Title = "Listado de Categorias ";
+    ViewBag.Title = "Listado de Categorías";
 }
 
-
-
-
-
-
 @model List<ProyectoP3Opta4.Models.Categoria>
-
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Categorias</title>
+    <title>Lista de Categorías</title>
     <style>
         /* Estilos CSS */
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        style >
-        /* Estilos CSS comunes */
         body {
             font-family: Arial, sans-serif;
         }
@@ -107,30 +93,32 @@
 </head>
 <body>
 
-    <h2>Lista de Categorias</h2>
+    <h2>Lista de Categorías</h2>
 
     <!-- Formulario de búsqueda -->
     <form id="searchForm" action="@Url.Action("Index")" method="get">
         <label for="search">Buscar:</label>
-        <input type="text" id="search" name="search" placeholder="Buscar categoria por nombre...">
+        <input type="text" id="search" name="search" placeholder="Buscar categoría por nombre...">
         <button type="submit" id="searchBtn">Buscar</button>
         <button type="button" id="refreshBtn">Actualizar lista</button> <!-- Nuevo botón -->
     </form>
 
-    <!-- Tabla de productos -->
+    <!-- Tabla de categorías -->
     <table>
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Cantidad de Productos en la Categoria</th>
+                <th>Descripción</th>
+                <th>Cantidad de Productos</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var categoria in Model)
             {
                 <tr>
-                    <td>@categoria.Nombre</td>
-                    <td>@categoria.CantidadProductos</td>
+                    <td>@categoria.nombre</td>
+                    <td>@categoria.descripcion</td>
+                    <td>@categoria.cantidadProductos</td>
                 </tr>
             }
         </tbody>
@@ -143,7 +131,5 @@
             document.getElementById('search').value = '';
             // Enviar el formulario para actualizar la lista
             document.getElementById('searchForm').submit();
-        });</script>
-
-</body>
-</html>
+        });
+     </script>

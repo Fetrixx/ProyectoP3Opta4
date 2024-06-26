@@ -8,24 +8,26 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using ProyectoP3Opta4.Dao;
 using ProyectoP3Opta4.Models;
+using Npgsql;
 
 namespace ProyectoP3Opta4.Dao
 {
     public class MarcasDao : Conexion
     {
-        public static DataTable getListaMarcas() // regresar todos los datos
+        public static DataTable getListaMarcas()
         {
-            // Conectarse a la base de datos
             string cadena = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection conexionDB;
+            NpgsqlConnection conexionDB;
             DataTable datatable = new DataTable();
-            MySqlDataReader resultado;
+            NpgsqlDataReader resultado;
 
             try
             {
-                conexionDB = new MySqlConnection(cadena);
-
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Marcas;", conexionDB);
+                conexionDB = new NpgsqlConnection(cadena);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT m.id_marca, m.nombre, m.pais_origen, SUM(p.cantidad) AS items " +
+                                                      "FROM marcas m " +
+                                                      "LEFT JOIN productos p ON m.id_marca = p.id_marca " +
+                                                      "GROUP BY m.id_marca, m.nombre, m.pais_origen;", conexionDB);
                 cmd.CommandType = CommandType.Text;
                 conexionDB.Open();
                 resultado = cmd.ExecuteReader();
@@ -33,25 +35,28 @@ namespace ProyectoP3Opta4.Dao
             }
             catch (Exception ex)
             {
-                // MessageBox.Show(ex.Message);
+                // Manejo de errores
             }
             return datatable;
         }
 
-        public static DataTable Listado_Marcas(string nombreMarc) // regresar solo el dato en el input
-        {
-            // Conectarse a la base de datos
-            string cadena = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection conexionDB;
-            DataTable datatable = new DataTable();
-            MySqlDataReader resultado;
 
+        public static DataTable Listado_Marcas(string nombreMarc)
+        {
+            string cadena = Conexion.getInstancia().getCadenaConexion();
+            NpgsqlConnection conexionDB;
+            DataTable datatable = new DataTable();
+            NpgsqlDataReader resultado;
 
             try
             {
-                conexionDB = new MySqlConnection(cadena);
-                string query = "SELECT * FROM Marcas WHERE upper(trim(Nombre)) like upper(trim(@nombreMarc));";
-                MySqlCommand cmd = new MySqlCommand(query, conexionDB);
+                conexionDB = new NpgsqlConnection(cadena);
+                string query = "SELECT m.id_marca, m.nombre, m.pais_origen, COUNT(p.id_producto) AS items " +
+                               "FROM marcas m " +
+                               "LEFT JOIN productos p ON m.id_marca = p.id_marca " +
+                               "WHERE upper(trim(m.nombre)) LIKE upper(trim(@nombreMarc)) " +
+                               "GROUP BY m.id_marca, m.nombre, m.pais_origen;";
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conexionDB);
                 cmd.Parameters.AddWithValue("@nombreMarc", "%" + nombreMarc + "%");
                 cmd.CommandType = CommandType.Text;
                 conexionDB.Open();
@@ -60,7 +65,7 @@ namespace ProyectoP3Opta4.Dao
             }
             catch (Exception ex)
             {
-                // MessageBox.Show(ex.Message);
+                // Manejo de errores
             }
             return datatable;
         }

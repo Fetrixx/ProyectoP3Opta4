@@ -1,0 +1,102 @@
+﻿@model ProyectoP3Opta4.Models.Empleado
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<style>
+    /* CSS Styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #343a40;
+    }
+
+    h2 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+        input[type="text"]:read-only {
+            background-color: #ffcccc;
+        }
+
+    .error-message {
+        color: red;
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+
+<div class="container">
+    <h2>Editar Empleado</h2>
+    @using (Html.BeginForm("Editar", "Empleado", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.id_empleado)
+        <div class="form-group">
+            <h5>
+                Nombre Completo:
+            </h5>
+            @Html.TextBoxFor(model => model.nombre_completo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.nombre_completo, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <h5>
+                Usuario:
+            </h5>
+            @Html.TextBoxFor(model => model.usuario, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <h5>
+                Contraseña:
+            </h5>
+            @Html.PasswordFor(model => model.contrasena, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.contrasena, "", new { @class = "text-danger" })
+
+        </div>
+        <div class="form-group">
+            <h5>
+                Rol:
+            </h5>
+            @Html.DropDownListFor(model => model.id_rol, (SelectList)ViewBag.Roles, "Seleccione un rol", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.id_rol, "", new { @class = "text-danger" })
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="@Url.Action("Index", "Empleado")" class="btn btn-secondary">Cancelar</a>
+    }
+</div>

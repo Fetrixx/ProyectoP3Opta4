@@ -59,7 +59,7 @@
 @{
     if (Session["loggedUser"] != null)
     {
-        <div style="display: flex; width: 100%; height: 100; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); flex-wrap:wrap; ">
+        <div style="display: flex; width: 100%; height: 100%; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); flex-wrap:wrap; ">
             <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; border-right: 1px solid #ccc; padding: 20px;">
                 <h2>Mantenimiento</h2>
                 <ul>
@@ -73,7 +73,13 @@
                 <ul>
                     <li>@Html.ActionLink("Lista Proveedores", "Index", "Proveedores", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Lista Productos", "Index", "Producto", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Lista Clientes", "Index", "Cliente", new { area = "" }, new { @class = "nav-link" })</li>
+                    @if (Session["userType"].ToString() == "1")
+                    {
+                        <li>@Html.ActionLink("Administrar Empleados", "Index", "Empleado", new { area = "" }, new { @class = "nav-link" })</li>
+
+                        <li>@Html.ActionLink("Administrar Roles", "Index", "Roles", new { area = "" }, new { @class = "nav-link" })</li>
+                    }
+
                 </ul>
             </div>
         </div>
@@ -82,66 +88,3 @@
 
 
 
-
-
-
-
-<!--
-
-
-    <div style="display: flex; width: 80%; height: 80%; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); " >
-    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; border-right: 1px solid #ccc; padding: 20px;">
-        <h2>Mantenimiento</h2>
-        <ul>
-            <li>@Html.ActionLink("Categorias", "Index", "Categoria", new { area = "" }, new { @class = "nav-link" })</li>
-            <li>@Html.ActionLink("Marcas", "Index", "Marcas", new { area = "" }, new { @class = "nav-link" })</li>
-            <li>@Html.ActionLink("Almacenes", "Index", "Almacen", new { area = "" }, new { @class = "nav-link" })</li>
-        </ul>
-    </div>
-    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; border-right: 1px solid #ccc; padding: 20px;">
-        <h2>Movimiento</h2>
-        <ul>
-            <li>@Html.ActionLink("Lista Proveedores", "Index", "Proveedores", new { area = "" }, new { @class = "nav-link" })</li>
-            <li>@Html.ActionLink("Lista Productos", "Index", "Producto", new { area = "" }, new { @class = "nav-link" })</li>
-            <li>@Html.ActionLink("Lista Clientes", "Index", "Cliente", new { area = "" }, new { @class = "nav-link" })</li>
-        </ul>
-    </div>
-</div>
-
-
-
-<div>
-    <h2>Mantenimiento</h2>
-
-    <form action="@Url.Action("Index", "Categoria")" method="get">
-        <button type="submit" class="nav-button">Categorias</button>
-    </form>
-
-    <form action="@Url.Action("Index", "Marcas")" method="get">
-        <button type="submit" class="nav-button">Marcas</button>
-    </form>
-
-    <form action="@Url.Action("Index", "Almacen")" method="get">
-        <button type="submit" class="nav-button">Almacenes</button>
-    </form>
-
-
-
-    <h2>Movimiento</h2>
-
-            <form action="@Url.Action("Index", "Proveedores")" method="get">
-                <button type="submit" class="nav-button">Lista Proveedores</button>
-            </form>
-
-            <form action="@Url.Action("Index", "Producto")" method="get">
-                <button type="submit" class="nav-button">Lista Productos</button>
-            </form>
-
-            <form action="@Url.Action("Index", "Cliente")" method="get">
-                <button type="submit" class="nav-button">Lista Clientes</button>
-            </form>
-
-</div>
-
-
--->

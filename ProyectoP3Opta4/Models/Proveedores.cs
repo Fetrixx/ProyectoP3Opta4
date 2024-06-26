@@ -8,25 +8,35 @@ namespace ProyectoP3Opta4.Models
 {
     public class Proveedores
     {
-
-        private string nombre;
+        private int id_proveedor;
+        private string nombre_empresa;
+        private string nombre_contacto;
         private string direccion;
         private string telefono;
-        private string mail;
+        private string correo_electronico;
 
-        [Required(ErrorMessage = "El nombre es requerido ya que es un identificador primario")]
-        public string Nombre { get => nombre; set => nombre = value; }  // PK
+        public int IdProveedor { get => id_proveedor; set => id_proveedor = value; }
+
+        public string NombreEmpresa { get => nombre_empresa; set => nombre_empresa = value; }
+
+        public string NombreContacto { get => nombre_contacto; set => nombre_contacto = value; }
+
         public string Direccion { get => direccion; set => direccion = value; }
+
         public string Telefono { get => telefono; set => telefono = value; }
-        public string Mail { get => mail; set => mail = value; }
+
+        public string CorreoElectronico { get => correo_electronico; set => correo_electronico = value; }
 
         public Proveedores() { }
-        public Proveedores(string nombre, string direccion, string telefono, string mail)
+
+        public Proveedores(int idProveedor, string nombreEmpresa, string nombreContacto, string direccion, string telefono, string correoElectronico)
         {
-            this.nombre = nombre;
+            this.id_proveedor = idProveedor;
+            this.nombre_empresa = nombreEmpresa;
+            this.nombre_contacto = nombreContacto;
             this.direccion = direccion;
             this.telefono = telefono;
-            this.mail = mail;
+            this.correo_electronico = correoElectronico;
         }
     }
 }

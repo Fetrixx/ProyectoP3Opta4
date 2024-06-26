@@ -17,14 +17,6 @@ namespace ProyectoP3Opta4.Controllers
 {
     public class AlmacenController : Controller
     {
-        // GET: Almacen
-        /*
-        public ActionResult Index()
-        {
-            return View();
-        }
-        */
-
         public ActionResult Index(string search)
         {
             List<Almacen> almacenes = new List<Almacen>();
@@ -32,27 +24,30 @@ namespace ProyectoP3Opta4.Controllers
             if (string.IsNullOrEmpty(search))
             {
                 DataTable dataTable = AlmacenDao.getListaAlmacenes();
-                almacenes = ConvertirDataTableAProductos(dataTable);
+                almacenes = ConvertirDataTableAAlmacenes(dataTable);
             }
             else
             {
-                DataTable dataTable = AlmacenDao.Listado_Almacenes(search); // nombre almacen
-                almacenes = ConvertirDataTableAProductos(dataTable);
+                DataTable dataTable = AlmacenDao.Listado_Almacenes(search);
+                almacenes = ConvertirDataTableAAlmacenes(dataTable);
             }
 
             return View(almacenes);
         }
 
-        // Método para convertir un DataTable a una lista de Productos
-        private List<Almacen> ConvertirDataTableAProductos(DataTable dataTable)
+        private List<Almacen> ConvertirDataTableAAlmacenes(DataTable dataTable)
         {
             List<Almacen> almacenes = new List<Almacen>();
 
             foreach (DataRow row in dataTable.Rows)
             {
-                Almacen almacen= new Almacen(
-                    nombre: row["Nombre"].ToString(),
-                    cantidadProductos: Convert.ToInt32(row["CantidadProductos"])
+                Almacen almacen = new Almacen(
+                    id_almacen: Convert.ToInt32(row["id_almacen"]),
+                    nombre: row["nombre"].ToString(),
+                    direccion: row["direccion"].ToString(),
+                    ciudad: row["ciudad"].ToString(),
+                    telefono: row["telefono"].ToString(),
+                    cantidadProductos: Convert.IsDBNull(row["cantidadProductos"]) ? 0 : Convert.ToInt32(row["cantidadProductos"])
                 );
                 almacenes.Add(almacen);
             }

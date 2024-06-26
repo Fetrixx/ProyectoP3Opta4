@@ -5,38 +5,52 @@ using System.Web;
 
 
 using ProyectoP3Opta4.Dao;
-using MySql.Data.MySqlClient;
-
+// using MySql.Data.MySqlClient;
+using Npgsql;
 
 namespace ProyectoP3Opta4.Dao
 {
     public class Conexion
     {
 
-        protected MySqlConnection DBconexion;
-        protected MySqlCommand DB_Comando;
-        protected MySqlDataReader DB_dataReader;
+        protected NpgsqlConnection DBconexion;
+        protected NpgsqlCommand DB_Comando;
+        protected NpgsqlDataReader DB_dataReader;
         private string server = "localhost";
-        private string database = "Facturacion";
-        private string user = "root";
+        private string database = "proyectoOptaP3";
+        private string user = "postgres";
         private string password = "root";
         private string cadenaConexion;
         private static Conexion Con = null;
 
         public Conexion()
         {
+            /*
             this.cadenaConexion = "database=" + database +
             "; datasource=" + server +
             "; User ID= " + user +
-            "; Password=" + password;
+            "; Password=" + password; */
+
+
+            this.cadenaConexion = "Host=" + server +
+                                 ";Database=" + database +
+                                 ";Username=" + user +
+                                 ";Password=" + password;
 
         }
         public string getCadenaConexion()
         {
+            /*
             this.cadenaConexion = "database=" + database +
             "; datasource=" + server +
             "; User ID= " + user +
             "; Password=" + password;
+            */
+            this.cadenaConexion = "Host=" + server +
+                                ";Database=" + database +
+                                ";Username=" + user +
+                                ";Password=" + password;
+
             return cadenaConexion;
         }
 
@@ -50,7 +64,7 @@ namespace ProyectoP3Opta4.Dao
                 + "User Id = root;"
                 + "Password= root;"
                 + "Database = Facturacion;";*/
-                DBconexion = new MySqlConnection(this.cadenaConexion);
+                DBconexion = new NpgsqlConnection(this.cadenaConexion);
                 DBconexion.Open();
             }
             catch (Exception ex)
@@ -71,9 +85,9 @@ namespace ProyectoP3Opta4.Dao
             }
         }
 
-        public MySqlConnection getCadenaConexionDB() // crear conexion tuto
+        public NpgsqlConnection getCadenaConexionDB() // crear conexion tuto
         {
-            MySqlConnection cad = new MySqlConnection();
+            NpgsqlConnection cad = new NpgsqlConnection();
             try
             {
                 string cadena = "database=" + database +
@@ -108,12 +122,12 @@ namespace ProyectoP3Opta4.Dao
             return Con;
         }
 
-        public MySqlConnection getPruebaDeConexion()
+        public NpgsqlConnection getPruebaDeConexion()
         {
 
             if (DBconexion == null)
             {
-                DBconexion = new MySqlConnection(cadenaConexion);
+                DBconexion = new NpgsqlConnection(cadenaConexion);
                 DBconexion.Open();
             }
 

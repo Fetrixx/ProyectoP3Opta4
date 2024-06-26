@@ -1,0 +1,45 @@
+﻿@model ProyectoP3Opta4.Models.Empleado
+
+@{
+    ViewBag.Title = "Nuevo Empleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h2>Nuevo Empleado</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <h5>
+                Nombre Completo:
+            </h5>
+            @Html.TextBoxFor(model => model.nombre_completo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.nombre_completo, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <h5>
+                Usuario:
+            </h5>
+            @Html.TextBoxFor(model => model.usuario, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <h5>
+                Contraseña:
+            </h5>
+            @Html.PasswordFor(model => model.contrasena, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.contrasena, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <h5>
+                Rol:
+            </h5>
+            @Html.DropDownListFor(model => model.id_rol, (SelectList)ViewBag.Roles, "Seleccione un rol", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.id_rol, "", new { @class = "text-danger" })
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="@Url.Action("Index", "Empleado")" class="btn btn-secondary">Cancelar</a>
+    }
+</div>

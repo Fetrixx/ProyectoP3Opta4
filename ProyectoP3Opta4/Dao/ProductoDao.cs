@@ -3,627 +3,469 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-using MySql.Data.MySqlClient;
+// using MySql.Data.MySqlClient;
+
+using Npgsql;
 using ProyectoP3Opta4.Controllers;
 using ProyectoP3Opta4.Models;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace ProyectoP3Opta4.Dao
 {
     public class ProductoDao: Conexion
     {
         public string respGral = "En proceso";
-        Producto prod = new Producto();
 
-
-        public void Insertar(Producto obj) // guardar_ca
+        public void Insertar(Producto obj)
         {
-            string sql = "INSERT INTO Productos (CodigoProducto, Nombre, Cantidad, categoria, marca, almacen) VALUES (@p1,@p2,@p3,@p4,@p5,@p6);";
+            string sql = "INSERT INTO Productos (nombre, descripcion, precio_unitario, id_categoria, id_marca, id_proveedor, cantidad, id_almacen) " +
+                         "VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);";
+
             try
             {
-                AbrirConexion();
-                MySqlCommand cmd = new MySqlCommand(sql, DBconexion);
-                cmd.CommandType = CommandType.Text;
-                //cmd.Prepare();
-                cmd.Parameters.AddWithValue("@p1", obj.CodigoProducto);
-                cmd.Parameters.AddWithValue("@p2", obj.Nombre);
-                cmd.Parameters.AddWithValue("@p3", obj.Cantidad);
-                cmd.Parameters.AddWithValue("@p4", obj.Categoria);
-                cmd.Parameters.AddWithValue("@p5", obj.Marca);
-                cmd.Parameters.AddWithValue("@p6", obj.Almacen);
-                cmd.ExecuteNonQuery();
-
-                Console.Write("grabo con exito");
-
-                respGral = "ok";
-
-
-            }
-            catch (Exception ex)
-            {
-                new Exception("Error al grabar la tabla...!!!" + ex.Message);
-            }
-
-            finally // una vez cerrada la conexion anterior, se hace:
-            {
-                CerrarConexion();
-                //respGral = "En proceso";
-                try                         // AGREGAR += A LAS TABLAS
+                using (NpgsqlConnection conexionDB = new NpgsqlConnection(getCadenaConexion()))
                 {
-                    // MenuProducto mnuProd = new MenuProducto();
-                    sumarATabla("Categorias", "CantidadProductos", obj.Cantidad, "Nombre", obj.Categoria);                       // SUMAR TABLAAAAAAAAAAAAA
-                    sumarATabla("Marcas", "Items", obj.Cantidad, "Nombre", obj.Marca);
-                    sumarATabla("Almacenes", "CantidadProductos", obj.Cantidad, "Nombre", obj.Almacen);
-                }
-                catch (Exception)
-                {
-                    // MessageBox.Show("Error al sumar productos a de las tablas", "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
-                }
-            }
-
-            try
-            {
-
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-
-        public static DataTable Listado_Productos(string nombreProdListado) // regresar solo el dato en el input
-        {
-            // Conectarse a la base de datos
-            string cadena = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection conexionDB;
-            DataTable datatable = new DataTable();
-            MySqlDataReader resultado;
-
-
-            try
-            {
-                conexionDB = new MySqlConnection(cadena);
-                string query = "SELECT * FROM Productos WHERE upper(trim(CodigoProducto)) like upper(trim(@nombreProdListado));";
-                MySqlCommand cmd = new MySqlCommand(query, conexionDB);
-                cmd.Parameters.AddWithValue("@nombreProdListado", "%" + nombreProdListado + "%");
-                cmd.CommandType = CommandType.Text;
-                conexionDB.Open();
-                resultado = cmd.ExecuteReader();
-                datatable.Load(resultado);
-            }
-            catch (Exception ex)
-            {
-                // MessageBox.Show(ex.Message);
-            }
-            return datatable;
-        }
-
-        
-
-        public int getDatoModif(string nombreTabla, string nombreValor, int CodigoProducto)
-        {
-
-            int val;
-
-            string cadenaConex = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection connection = new MySqlConnection(cadenaConex);
-
-            MySqlCommand command = new MySqlCommand($"SELECT {nombreValor} FROM {nombreTabla} WHERE CodigoProducto = {CodigoProducto} ;", connection);      // cargar Categorias
-            command.CommandType = CommandType.Text;
-            connection.Open();
-
-            MySqlDataReader reader = command.ExecuteReader();
-            reader.Read();
-
-            val = Convert.ToInt32(reader[$"{nombreValor}"].ToString());
-            reader.Close(); // Cierra el lector
-            return val;
-        }
-
-        public Producto duplicarProd(int codigoProd)
-        {
-            string cadena = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection conexionDB;
-            Producto prod = new Producto();
-            try
-            {
-                conexionDB = new MySqlConnection(cadena);
-
-                MySqlCommand cmd = new MySqlCommand($"SELECT * FROM Productos WHERE CodigoProducto = {codigoProd};", conexionDB);
-                cmd.CommandType = CommandType.Text;
-                conexionDB.Open();
-                MySqlDataReader reader = cmd.ExecuteReader();
-                reader.Read();
-
-                prod.Cantidad = Convert.ToInt32(reader[$"Cantidad"].ToString());
-                prod.Categoria = reader["categoria"].ToString();
-                prod.Marca = reader["marca"].ToString();
-                prod.Almacen = reader["almacen"].ToString();
-
-                reader.Close(); // Cierra el lector
-                return prod;
-            }
-            catch (Exception ex)
-            {
-                // MessageBox.Show("Error al duplicar producto", "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // MessageBox.Show(ex.Message);
-            }
-
-
-            return prod;
-        }
-
-
-        public void modificar(Producto obj)
-        {
-            Producto prodAnterior = duplicarProd(obj.CodigoProducto);
-            // MessageBox.Show($"Producto anteriormente tenia: {prodAnterior.Cantidad}");
-            // MessageBox.Show($"Producto actualmente tiene: {obj.Cantidad}");
-            try
-            {
-                if (prodAnterior.Cantidad != obj.Cantidad) // si se cambio la cantidad
-                {
-                    // MessageBox.Show("Se modifico la cantidad del producto");
-                    if (prodAnterior.Cantidad < obj.Cantidad) // ahora hay mas prod.
+                    conexionDB.Open();
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conexionDB))
                     {
-                        int cantNueva = obj.Cantidad - prodAnterior.Cantidad;
-                        sumarATabla("Categorias", "CantidadProductos", cantNueva, "Nombre", obj.Categoria);
-                        sumarATabla("Marcas", "Items", cantNueva, "Nombre", obj.Marca);
-                        sumarATabla("Almacenes", "CantidadProductos", cantNueva, "Nombre", obj.Almacen);
+                        cmd.Parameters.AddWithValue("@p1", obj.nombre);
+                        cmd.Parameters.AddWithValue("@p2", obj.descripcion);
+                        cmd.Parameters.AddWithValue("@p3", obj.precio_unitario);
+                        cmd.Parameters.AddWithValue("@p4", obj.id_categoria);
+                        cmd.Parameters.AddWithValue("@p5", obj.id_marca);
+                        cmd.Parameters.AddWithValue("@p6", obj.id_proveedor);
+                        cmd.Parameters.AddWithValue("@p7", obj.cantidad);
+                        cmd.Parameters.AddWithValue("@p8", obj.id_almacen);
+                        cmd.ExecuteNonQuery();
                     }
-                    else // hay menos productos
+                }
+                respGral = "ok";
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al insertar el producto: " + ex.Message);
+            }
+        }
+
+        public void Modificar(Producto obj)
+        {
+            try
+            {
+                using (NpgsqlConnection conexionDB = new NpgsqlConnection(getCadenaConexion()))
+                {
+                    conexionDB.Open();
+                    using (NpgsqlCommand cmd = new NpgsqlCommand("UPDATE Productos SET nombre = @p2, descripcion = @p3, precio_unitario = @p4, " +
+                                                                "id_categoria = @p5, id_marca = @p6, id_proveedor = @p7, cantidad = @p8, id_almacen = @p9 " +
+                                                                "WHERE id_producto = @p1;", conexionDB))
                     {
-                        int cantNueva = prodAnterior.Cantidad - obj.Cantidad;
-                        restarATabla("Categorias", "CantidadProductos", cantNueva, "Nombre", obj.Categoria);
-                        restarATabla("Marcas", "Items", cantNueva, "Nombre", obj.Marca);
-                        restarATabla("Almacenes", "CantidadProductos", cantNueva, "Nombre", obj.Almacen);
+                        cmd.Parameters.AddWithValue("@p1", obj.id_producto);
+                        cmd.Parameters.AddWithValue("@p2", obj.nombre);
+                        cmd.Parameters.AddWithValue("@p3", obj.descripcion);
+                        cmd.Parameters.AddWithValue("@p4", obj.precio_unitario);
+                        cmd.Parameters.AddWithValue("@p5", obj.id_categoria);
+                        cmd.Parameters.AddWithValue("@p6", obj.id_marca);
+                        cmd.Parameters.AddWithValue("@p7", obj.id_proveedor);
+                        cmd.Parameters.AddWithValue("@p8", obj.cantidad);
+                        cmd.Parameters.AddWithValue("@p9", obj.id_almacen);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                respGral = "ok";
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al modificar el producto: " + ex.Message);
+            }
+        }
+
+
+        public void Eliminar(int id_producto)
+        {
+            try
+            {
+                using (NpgsqlConnection conexionDB = new NpgsqlConnection(getCadenaConexion()))
+                {
+                    conexionDB.Open();
+                    using (NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM Productos WHERE id_producto = @id_producto;", conexionDB))
+                    {
+                        cmd.Parameters.AddWithValue("@id_producto", id_producto);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                respGral = "ok";
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el producto: " + ex.Message);
+            }
+        }
+        public List<Producto> ListarProductos(string nombre)
+        {
+            List<Producto> productos = new List<Producto>();
+
+            try
+            {
+                using (NpgsqlConnection conexionDB = new NpgsqlConnection(getCadenaConexion()))
+                {
+                    conexionDB.Open();
+                    string query = "SELECT * FROM Productos WHERE upper(trim(nombre)) LIKE upper(trim(@nombre));";
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexionDB))
+                    {
+                        cmd.Parameters.AddWithValue("@nombre", "%" + nombre + "%");
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Producto producto = new Producto
+                                {
+                                    id_producto = Convert.ToInt32(reader["id_producto"]),
+                                    nombre = reader["nombre"].ToString(),
+                                    descripcion = reader["descripcion"].ToString(),
+                                    precio_unitario = Convert.ToDecimal(reader["precio_unitario"]),
+                                    id_categoria = Convert.ToInt32(reader["id_categoria"]),
+                                    id_marca = Convert.ToInt32(reader["id_marca"]),
+                                    id_proveedor = Convert.ToInt32(reader["id_proveedor"]),
+                                    cantidad = Convert.ToInt32(reader["cantidad"]),
+                                    id_almacen = Convert.ToInt32(reader["id_almacen"]),
+                                    categoria_nombre = ObtenerNombrePorId("categorias", Convert.ToInt32(reader["id_categoria"])),
+                                    marca_nombre = ObtenerNombrePorId("marcas", Convert.ToInt32(reader["id_marca"])),
+                                    proveedor_nombre = ObtenerNombrePorId("proveedores", Convert.ToInt32(reader["id_proveedor"])),
+                                    almacen_nombre = ObtenerNombrePorId("almacenes", Convert.ToInt32(reader["id_almacen"]))
+                                };
+                                productos.Add(producto);
+                            }
+                        }
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // MessageBox.Show("Error al modificar cantidad de prod", "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw new Exception("Error al obtener el listado de productos: " + ex.Message);
             }
+
+            return productos;
+        }
+
+        // Método para obtener todas las categorías desde la base de datos
+        public List<Categoria> CargarCategorias()
+        {
+            List<Categoria> categorias = new List<Categoria>();
 
             try
             {
-                if (prodAnterior.Categoria != obj.Categoria)   // cambio en categoria, se mueve la cantidad de cat a cat
+                using (NpgsqlConnection conexionDB = new NpgsqlConnection(getCadenaConexion()))
                 {
-                    // MessageBox.Show("Se modifico la categoria del producto");
-                    restarATabla("Categorias", "CantidadProductos", prodAnterior.Cantidad, "Nombre", prodAnterior.Categoria); // restar de categoria anterior
-                    sumarATabla("Categorias", "CantidadProductos", obj.Cantidad, "Nombre", obj.Categoria);      // agregar a nueva cat                                              
+                    conexionDB.Open();
+                    string query = "SELECT id_categoria, nombre FROM Categorias;";
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexionDB))
+                    {
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Categoria categoria = new Categoria
+                                {
+                                    id_categoria = Convert.ToInt32(reader["id_categoria"]),
+                                    nombre = reader["nombre"].ToString()
+                                };
+                                categorias.Add(categoria);
+                            }
+                        }
+                    }
                 }
-            }
-            catch (Exception)
-            {
-                // MessageBox.Show("Error al modificar categoria de prod", "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            try
-            {
-                if (prodAnterior.Marca != obj.Marca)   // cambio en marca
-                {
-                    // MessageBox.Show("Se modifico la marca del producto");
-                    restarATabla("Marcas", "Items", prodAnterior.Cantidad, "Nombre", prodAnterior.Marca);
-                    sumarATabla("Marcas", "Items", obj.Cantidad, "Nombre", obj.Marca);
-                }
-            }
-            catch (Exception)
-            {
-                // MessageBox.Show("Error al modificar marca de prod", "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            try
-            {
-                if (prodAnterior.Almacen != obj.Almacen)   // cambio en almacen
-                {
-                    // MessageBox.Show("Se modifico el almacen del producto");
-                    restarATabla("Almacenes", "CantidadProductos", prodAnterior.Cantidad, "Nombre", prodAnterior.Almacen);
-                    sumarATabla("Almacenes", "CantidadProductos", obj.Cantidad, "Nombre", obj.Almacen);
-                }
-            }
-            catch (Exception)
-            {
-                // MessageBox.Show("Error al modificar marca de prod", "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
-            string query = "UPDATE Productos SET Nombre = @p2, Cantidad = @p3, categoria = @p4, marca = @p5, almacen = @p6 WHERE CodigoProducto = @p1;";
-            try
-            {
-                AbrirConexion();
-                MySqlCommand Cmd = new MySqlCommand(query, DBconexion);
-                Cmd.Parameters.AddWithValue("@p1", obj.CodigoProducto);
-                Cmd.Parameters.AddWithValue("@p2", obj.Nombre);
-                Cmd.Parameters.AddWithValue("@p3", obj.Cantidad);
-                Cmd.Parameters.AddWithValue("@p4", obj.Categoria);
-                Cmd.Parameters.AddWithValue("@p5", obj.Marca);
-                Cmd.Parameters.AddWithValue("@p6", obj.Almacen);
-
-                Cmd.ExecuteNonQuery();
-                Console.Write("grabo con exito");
-                respGral = "ok";
-
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al grabar la tabla...!!!"
-                + ex.Message);
-            }
-            finally
-            {
-                CerrarConexion();
-            }
-        }
-
-        public void Eliminar_Prod(Producto obj) // guardar_ca
-        {
-            try                         // eliminar -= a tablas
-            {
-                // MenuProducto mnuProd = new MenuProducto();
-
-
-                restarATabla("Categorias", "CantidadProductos", obj.Cantidad, "Nombre", obj.Categoria);
-                restarATabla("Marcas", "Items", obj.Cantidad, "Nombre", obj.Marca);
-                restarATabla("Almacenes", "CantidadProductos", obj.Cantidad, "Nombre", obj.Almacen);
-            }
-            catch (Exception)
-            {
-                // MessageBox.Show("Error al restar productos a de las tablas", "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
-            }
-
-            string sql = "DELETE FROM Productos WHERE CodigoProducto = @p1;";
-            try
-            {
-                AbrirConexion();
-                MySqlCommand cmd = new MySqlCommand(sql, DBconexion);
-                cmd.CommandType = CommandType.Text;
-                //cmd.Prepare();
-                cmd.Parameters.AddWithValue("@p1", obj.CodigoProducto);
-                cmd.ExecuteNonQuery();
-                Console.Write("elimino con exito");
-                respGral = "ok";
-            }
-            catch (Exception ex)
-            {
-                new Exception("Error al eliminar la tabla...!!!" + ex.Message);
-            }
-            finally
-            {
-                CerrarConexion();
-
-            }
-        }
-
-
-        public static DataTable getListaProductos() // regresar todos los datos
-        {
-            // Conectarse a la base de datos
-            string cadena = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection conexionDB;
-            DataTable datatable = new DataTable();
-            MySqlDataReader resultado;
-
-            try
-            {
-                conexionDB = new MySqlConnection(cadena);
-
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Productos;", conexionDB);
-                cmd.CommandType = CommandType.Text;
-                conexionDB.Open();
-                resultado = cmd.ExecuteReader();
-                datatable.Load(resultado);
-            }
-            catch (Exception ex)
-            {
-                // MessageBox.Show("Error en ProductoDao getListaProductos()", "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // MessageBox.Show(ex.Message);
-            }
-            return datatable;
-        }
-
-        /*
-        public static void cargarBoxes(ComboBox cboxCat, ComboBox cboxMar, ComboBox cboxAlm)
-        {
-
-            string cadenaConex = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection connection = new MySqlConnection(cadenaConex);
-
-            MySqlCommand command = new MySqlCommand("SELECT Nombre FROM Categorias;", connection);      // cargar Categorias
-            MySqlCommand command2 = new MySqlCommand("SELECT Nombre FROM Marcas;", connection);
-            MySqlCommand command3 = new MySqlCommand("SELECT Nombre FROM Almacenes;", connection);
-
-            command.CommandType = CommandType.Text;// Ejecuta la consulta
-            command2.CommandType = CommandType.Text;
-            command3.CommandType = CommandType.Text;
-            connection.Open();
-
-            MySqlDataReader reader = command.ExecuteReader();// Obtiene el resultado de la consulta
-
-            while (reader.Read())
-            {
-                // Agrega los resultados de la consulta al combobox
-                cboxCat.Items.Add(reader["Nombre"].ToString());
-            }
-            reader.Close(); // Cierra el lector
-
-
-
-
-            MySqlDataReader reader2 = command2.ExecuteReader();// Obtiene el resultado de la consulta       Cargar Marcas
-
-            while (reader2.Read())
-            {
-                // Agrega los resultados de la consulta al combobox
-                cboxMar.Items.Add(reader2["Nombre"].ToString());
-            }
-            reader2.Close();
-
-            MySqlDataReader reader3 = command3.ExecuteReader();// Obtiene el resultado de la consulta       Cargar Almacenes
-
-            while (reader3.Read())
-            {
-                // Agrega los resultados de la consulta al combobox
-                cboxAlm.Items.Add(reader3["Nombre"].ToString());
-            }
-            reader3.Close();
-
-        }
-        */
-
-        public static List<string> cargarCategorias()
-        {
-            List<string> categorias = new List<string>();
-
-            string cadenaConex = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection connection = new MySqlConnection(cadenaConex);
-
-            MySqlCommand command = new MySqlCommand("SELECT Nombre FROM Categorias;", connection); // Consulta para obtener todas las categorías
-            command.CommandType = CommandType.Text;
-
-            try
-            {
-                connection.Open();
-                MySqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    // Agrega cada nombre de categoría a la lista
-                    categorias.Add(reader["Nombre"].ToString());
-                }
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                // Manejo de excepciones si ocurre algún error
-                // Por ejemplo, puedes registrar el error o lanzar una excepción
-                Console.WriteLine("Error al cargar las categorías: " + ex.Message);
-            }
-            finally
-            {
-                connection.Close(); // Cierra la conexión
+                throw new Exception("Error al cargar las categorías: " + ex.Message);
             }
 
             return categorias;
         }
 
-        public static List<string> cargarMarcas()
+        // Método para obtener todas las marcas desde la base de datos
+        public List<Marcas> CargarMarcas()
         {
-            List<string> marcas = new List<string>();
-
-            string cadenaConex = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection connection = new MySqlConnection(cadenaConex);
-
-            MySqlCommand command = new MySqlCommand("SELECT Nombre FROM Marcas;", connection); // Consulta para obtener todas las marcas
-            command.CommandType = CommandType.Text;
+            List<Marcas> marcas = new List<Marcas>();
 
             try
             {
-                connection.Open();
-                MySqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
+                using (NpgsqlConnection conexionDB = new NpgsqlConnection(getCadenaConexion()))
                 {
-                    // Agrega cada nombre de marca a la lista
-                    marcas.Add(reader["Nombre"].ToString());
+                    conexionDB.Open();
+                    string query = "SELECT id_marca, nombre FROM Marcas;";
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexionDB))
+                    {
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Marcas marca = new Marcas
+                                {
+                                    id_marca = Convert.ToInt32(reader["id_marca"]),
+                                    nombre = reader["nombre"].ToString()
+                                };
+                                marcas.Add(marca);
+                            }
+                        }
+                    }
                 }
-
-                reader.Close();
             }
             catch (Exception ex)
             {
-                // Manejo de excepciones si ocurre algún error
-                Console.WriteLine("Error al cargar las marcas: " + ex.Message);
-            }
-            finally
-            {
-                connection.Close(); // Cierra la conexión
+                throw new Exception("Error al cargar las marcas: " + ex.Message);
             }
 
             return marcas;
         }
 
-        public static List<string> cargarAlmacenes()
+        // Método para obtener todos los almacenes desde la base de datos
+        public List<Almacen> CargarAlmacenes()
         {
-            List<string> almacenes = new List<string>();
-
-            string cadenaConex = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection connection = new MySqlConnection(cadenaConex);
-
-            MySqlCommand command = new MySqlCommand("SELECT Nombre FROM Almacenes;", connection); // Consulta para obtener todos los almacenes
-            command.CommandType = CommandType.Text;
+            List<Almacen> almacenes = new List<Almacen>();
 
             try
             {
-                connection.Open();
-                MySqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
+                using (NpgsqlConnection conexionDB = new NpgsqlConnection(getCadenaConexion()))
                 {
-                    // Agrega cada nombre de almacén a la lista
-                    almacenes.Add(reader["Nombre"].ToString());
+                    conexionDB.Open();
+                    string query = "SELECT id_almacen, nombre FROM Almacenes;";
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexionDB))
+                    {
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Almacen almacen = new Almacen
+                                {
+                                    id_almacen = Convert.ToInt32(reader["id_almacen"]),
+                                    nombre = reader["nombre"].ToString()
+                                };
+                                almacenes.Add(almacen);
+                            }
+                        }
+                    }
                 }
-
-                reader.Close();
             }
             catch (Exception ex)
             {
-                // Manejo de excepciones si ocurre algún error
-                Console.WriteLine("Error al cargar los almacenes: " + ex.Message);
-            }
-            finally
-            {
-                connection.Close(); // Cierra la conexión
+                throw new Exception("Error al cargar los almacenes: " + ex.Message);
             }
 
             return almacenes;
         }
 
-
-
-        public void sumarATabla(string nombreTabla, string nombreValor, int valorASumar, string nombreID, string nombreItem) // reutilizar cargarBoxes
+        public List<Proveedores> CargarProveedores()
         {
-            int val = getDato(nombreTabla, nombreValor, nombreItem); // agarra el valor para hacer la sumatoria
+            List<Proveedores> proveedores = new List<Proveedores>();
 
-            val += valorASumar;
-            // where nombre = nombreDeCategoria
-            string query = $"UPDATE {nombreTabla} SET {nombreValor} = @p2 WHERE {nombreID} = @p1;";
             try
             {
-                AbrirConexion();
-                MySqlCommand Cmd = new MySqlCommand(query, DBconexion);
-                Cmd.Parameters.AddWithValue("@p1", nombreItem);
-                Cmd.Parameters.AddWithValue("@p2", val);
-
-                Cmd.ExecuteNonQuery();
-                Console.Write("grabo con exito");
-                respGral = "ok";
-
+                using (NpgsqlConnection conexionDB = new NpgsqlConnection(getCadenaConexion()))
+                {
+                    conexionDB.Open();
+                    string query = "SELECT id_proveedor, nombre_empresa FROM Proveedores;";
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexionDB))
+                    {
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Proveedores proveedor = new Proveedores
+                                {
+                                    IdProveedor = Convert.ToInt32(reader["id_proveedor"]),
+                                    NombreEmpresa = reader["nombre_empresa"].ToString()
+                                };
+                                proveedores.Add(proveedor);
+                            }
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al += en la la tabla...!!!"
-                + ex.Message);
-            }
-            finally
-            {
-                CerrarConexion();
+                throw new Exception("Error al cargar los proveedores: " + ex.Message);
             }
 
+            return proveedores;
         }
 
-        public void restarATabla(string nombreTabla, string nombreValor, int valorARestar, string nombreID, string nombreItem) // reutilizar cargarBoxes
 
+        private string ObtenerNombrePorId(string tabla, int id)
         {
-            int val = getDatoElim(nombreTabla, nombreValor, nombreItem); // agarra el valor para hacer la sumatoria
-
-
-
-            val -= valorARestar;
-
-            string query = $"UPDATE {nombreTabla} SET {nombreValor} = @p2 WHERE {nombreID} = @p1;";
-            try
-            {
-                AbrirConexion();
-                MySqlCommand Cmd = new MySqlCommand(query, DBconexion);
-                Cmd.Parameters.AddWithValue("@p1", nombreItem);
-                Cmd.Parameters.AddWithValue("@p2", val);
-
-                Cmd.ExecuteNonQuery();
-                Console.Write("grabo con exito");
-                respGral = "ok";
-
+            string nombre = string.Empty;
+            
+                try
+                {
+                NpgsqlConnection conexionDB = new NpgsqlConnection(getCadenaConexion());
+                if (tabla.ToLower().Trim() == "almacenes")
+                {
+                    conexionDB.Open();
+                    string query = $"SELECT nombre FROM almacenes WHERE id_almacen = @id;";
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexionDB))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                nombre = reader["nombre"].ToString();
+                            }
+                        }
+                    }
+                }
+                if (tabla.ToLower().Trim() == "categorias")
+                {
+                    conexionDB.Open();
+                    string query = $"SELECT nombre FROM categorias WHERE id_categoria = @id;";
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexionDB))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                nombre = reader["nombre"].ToString();
+                            }
+                        }
+                    }
+                }
+                if (tabla.ToLower().Trim() == "marcas")
+                {
+                    conexionDB.Open();
+                    string query = $"SELECT nombre FROM marcas WHERE id_marca = @id;";
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexionDB))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                nombre = reader["nombre"].ToString();
+                            }
+                        }
+                    }
+                }
+                if (tabla.ToLower().Trim() == "proveedores")
+                {
+                    conexionDB.Open();
+                    string query = $"SELECT nombre_empresa FROM proveedores WHERE id_proveedor = @id;";
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexionDB))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                nombre = reader["nombre_empresa"].ToString();
+                            }
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al += en la la tabla...!!!"
-                + ex.Message);
+                throw new Exception($"Error al obtener el nombre de la tabla {tabla}: " + ex.Message);
             }
-            finally
-            {
-                CerrarConexion();
-            }
-        }
 
-        public int getDato(string nombreTabla, string nombreValor, string nombreItem)
-        {
-            int val;
-            string cadenaConex = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection connection = new MySqlConnection(cadenaConex);
-
-            MySqlCommand command = new MySqlCommand($"SELECT {nombreValor} FROM {nombreTabla} WHERE Nombre = '{nombreItem}' ;", connection);      // cargar Categorias
-            command.CommandType = CommandType.Text;
-            connection.Open();
-
-            MySqlDataReader reader = command.ExecuteReader();
-            reader.Read();
-
-            val = Convert.ToInt32(reader[$"{nombreValor}"].ToString());
-            reader.Close(); // Cierra el lector
-            return val;
+            return nombre;
         }
 
 
-        public int getDatoElim(string nombreTabla, string nombreValor, string nombreItem)
-        {
-            int val;
-
-            string cadenaConex = Conexion.getInstancia().getCadenaConexion();
-            MySqlConnection connection = new MySqlConnection(cadenaConex);
-
-            MySqlCommand command = new MySqlCommand($"SELECT {nombreValor} FROM {nombreTabla} WHERE Nombre = '{nombreItem}' ;", connection);      // cargar Categorias
-            command.CommandType = CommandType.Text;
-            connection.Open();
-
-            MySqlDataReader reader = command.ExecuteReader();
-            reader.Read();
-
-            val = Convert.ToInt32(reader[$"{nombreValor}"].ToString());
-            reader.Close(); // Cierra el lector
-            return val;
-
-        }
-
-
-        public Producto ObtenerProductoPorCodigo(int codigoProducto)
+        /*
+        public Producto ObtenerProductoPorId(int id_producto)
         {
             Producto producto = null;
 
             try
             {
-                AbrirConexion();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Productos WHERE CodigoProducto = @codigoProducto", DBconexion);
-                cmd.Parameters.AddWithValue("@codigoProducto", codigoProducto);
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
+                using (NpgsqlConnection conexionDB = new NpgsqlConnection(getCadenaConexion()))
                 {
-                    producto = new Producto
+                    conexionDB.Open();
+                    using (NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM Productos WHERE id_producto = @id_producto;", conexionDB))
                     {
-                        CodigoProducto = Convert.ToInt32(reader["CodigoProducto"]),
-                        Nombre = reader["Nombre"].ToString(),
-                        Cantidad = Convert.ToInt32(reader["Cantidad"]),
-                        Categoria = reader["categoria"].ToString(),
-                        Marca = reader["marca"].ToString(),
-                        Almacen = reader["almacen"].ToString()
-                    };
+                        cmd.Parameters.AddWithValue("@id_producto", id_producto);
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                producto = new Producto
+                                {
+                                    id_producto = Convert.ToInt32(reader["id_producto"]),
+                                    nombre = reader["nombre"].ToString(),
+                                    descripcion = reader["descripcion"].ToString(),
+                                    precio_unitario = Convert.ToDecimal(reader["precio_unitario"]),
+                                    id_categoria = Convert.ToInt32(reader["id_categoria"]),
+                                    id_marca = Convert.ToInt32(reader["id_marca"]),
+                                    id_proveedor = Convert.ToInt32(reader["id_proveedor"]),
+                                    cantidad = Convert.ToInt32(reader["cantidad"]),
+                                    id_almacen = Convert.ToInt32(reader["id_almacen"])
+                                };
+                            }
+                        }
+                    }
                 }
-
-                reader.Close();
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al obtener el producto por código: " + ex.Message);
+                throw new Exception("Error al obtener el producto por ID: " + ex.Message);
             }
-            finally
+
+            return producto;
+        }
+        */
+
+        public Producto ObtenerProductoPorId(int id_producto)
+        {
+            Producto producto = null;
+
+            try
             {
-                CerrarConexion();
+                using (NpgsqlConnection conexionDB = new NpgsqlConnection(getCadenaConexion()))
+                {
+                    conexionDB.Open();
+                    using (NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM Productos WHERE id_producto = @id_producto;", conexionDB))
+                    {
+                        cmd.Parameters.AddWithValue("@id_producto", id_producto);
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                producto = new Producto
+                                {
+                                    id_producto = Convert.ToInt32(reader["id_producto"]),
+                                    nombre = reader["nombre"].ToString(),
+                                    descripcion = reader["descripcion"].ToString(),
+                                    precio_unitario = Convert.ToDecimal(reader["precio_unitario"]),
+                                    id_categoria = Convert.ToInt32(reader["id_categoria"]),
+                                    id_marca = Convert.ToInt32(reader["id_marca"]),
+                                    id_proveedor = Convert.ToInt32(reader["id_proveedor"]),
+                                    cantidad = Convert.ToInt32(reader["cantidad"]),
+                                    id_almacen = Convert.ToInt32(reader["id_almacen"])
+                                };
+                            }
+                        }
+                    }
+
+                    // Cargar nombre de la categoría
+                    if (producto != null)
+                    {
+                        producto.categoria_nombre = ObtenerNombrePorId("Categorias", producto.id_categoria);
+
+                        // Cargar nombre de la marca
+                        producto.marca_nombre = ObtenerNombrePorId("Marcas", producto.id_marca);
+
+                        // Cargar nombre del proveedor
+                        producto.proveedor_nombre = ObtenerNombrePorId("Proveedores", producto.id_proveedor);
+
+                        // Cargar nombre del almacén
+                        producto.almacen_nombre = ObtenerNombrePorId("Almacenes", producto.id_almacen);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el producto por ID: " + ex.Message);
             }
 
             return producto;

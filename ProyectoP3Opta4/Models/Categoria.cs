@@ -7,19 +7,19 @@ namespace ProyectoP3Opta4.Models
 {
     public class Categoria
     {
-        private string nombre;
-        private int cantidadProductos;
-
-        public string Nombre { get => nombre; set => nombre = value; }  // PK
-        public int CantidadProductos { get => cantidadProductos; set => cantidadProductos = value; }
+        public int id_categoria { get; set; }
+        public string nombre { get; set; }
+        public string descripcion { get; set; }
+        public int cantidadProductos { get; set; }
 
         public Categoria() { }
-        public Categoria(string nombre, int cantidadProductos)
+
+        public Categoria(int id_categoria, string nombre, string descripcion, int cantidadProductos)
         {
-            this.Nombre = nombre;
-            this.CantidadProductos = cantidadProductos;
-
-
+            this.id_categoria = id_categoria;
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.cantidadProductos = cantidadProductos;
         }
     }
 }
